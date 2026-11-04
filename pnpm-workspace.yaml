@@ -1,0 +1,11 @@
+packages:
+  - 'packages/*'
+  - 'server'
+
+# esbuild 的 postinstall 需要落盘平台二进制，pnpm 11 必须显式授权。
+allowBuilds:
+  esbuild: true
+
+# tsx 与 vite 各带一条 esbuild 线，锁定单版本避免二元二进制不匹配。
+overrides:
+  esbuild: 0.25.12

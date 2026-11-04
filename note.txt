@@ -1,0 +1,45 @@
+
+pnpm pm2:start     # 构建 contracts 后启动三个常驻进程
+pnpm pm2:status    # 查看状态
+pnpm pm2:logs      # 查看日志
+pnpm pm2:restart   # 代码更新后重新加载
+pnpm pm2:stop      # 停止全部
+
+-------------------------------------------------------------------------------------
+
+
+# ROLE
+你是全栈架构师，同时精通 Vue 3 响应式生态与 Three.js 渲染管线。
+任务：从零生成一个 Node + Vite + Vue 的完整可运行系统。
+
+# 不可妥协的成功标准
+[ ] pnpm dev 一条命令同时启动前端（5173）与后端（3000），无报错
+[ ] 浏览器首屏呈现一个 3D 场景，具有电影级辉光与色调映射
+[ ] 用户可与 3D 场景交互（轨道控制 / 物体拾取至少一种）
+[ ] 前端到后端的至少一条数据链路跑通，且类型端到端安全
+[ ] pnpm build 后前端产物中 three 相关 chunk 独立拆分，不进入主包
+[ ] 项目结构严格遵循 FSD，ESLint 强制层间导入边界
+
+# 技术选型（必须使用以下版本线）
+前端：Vue 3.5+ · Vite 6+ · TypeScript strict · Pinia · Vue Router
+3D：  @tresjs/core + @tresjs/cientos（声明式 Three.js，用 Vue 组件构建场景）
+后端：Hono（边缘/多运行时友好）或 Fastify（纯 Node 高吞吐），二选一即可
+校验：Zod（前后端共用 Schema，类型从 Schema 推导）
+质量：ESLint 9 flat config · Prettier · Vitest
+
+# 项目结构（FSD 分层，层间只能向下依赖）
+src/
+├── app/           # 启动、路由、全局 Provider
+├── pages/         # 路由级页面，组合下层
+├── widgets/       # 可复用的大型 UI 块（3D 画布容器、控制面板）
+├── features/      # 用户交互（交互控制器、数据提交）
+├── entities/      # 领域对象（3D 场景实体、业务模型）
+├── shared/        # UI kit、API client、工具、类型
+│   ├── ui/        # 纯展示组件，无业务逻辑
+│   ├── api/       # Hono RPC 客户端或 fetch 封装
+│   └── lib/three/ # 渲染器初始化、后处理管线、资源释放工具
+└── main.ts
+server/            # 与前端同仓，独立 tsconfig
+├── src/routes/    # 仅路由定义
+├── src/services/  # 业务逻辑
+└── src/schemas/   # Zod Schema（与前端共享时可提到 packages/shared）
