@@ -1,0 +1,52 @@
+[2026-11-04 19:55:50] starting http://127.0.0.1:8770/  root=C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe
+stockframe 控制台已启动：http://127.0.0.1:8770/
+  界面文件：C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe\web\index.html（已构建）
+  Ctrl+C 停止
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 65443)
+Traceback (most recent call last):
+  File "C:\Python313\Lib\socketserver.py", line 692, in process_request_thread
+    self.finish_request(request, client_address)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\socketserver.py", line 761, in __init__
+    self.handle()
+    ~~~~~~~~~~~^^
+  File "C:\Python313\Lib\http\server.py", line 438, in handle
+    self.handle_one_request()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\http\server.py", line 404, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+                           ~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
+[2026-11-04 19:57:56] starting http://127.0.0.1:8770/  root=C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe
+stockframe 控制台已启动：http://127.0.0.1:8770/
+  界面文件：C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe\web\index.html（已构建）
+  Ctrl+C 停止
+[2026-11-04 19:58:06] port 8770 already in use, exit（已有实例在跑）
+[2026-11-04 20:02:41] starting http://127.0.0.1:8770/  root=C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe
+stockframe 控制台已启动：http://127.0.0.1:8770/
+  界面文件：C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe\web\index.html（已构建）
+  Ctrl+C 停止
+[2026-11-04 20:19:11] starting http://127.0.0.1:8770/  root=C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe
+stockframe 控制台已启动：http://127.0.0.1:8770/
+  界面文件：C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe\web\index.html（已构建）
+  Ctrl+C 停止
+[2026-11-04 20:19:28] starting http://127.0.0.1:8770/  root=C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe
+stockframe 控制台已启动：http://127.0.0.1:8770/
+  界面文件：C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe\web\index.html（已构建）
+  Ctrl+C 停止
+[2026-11-04 20:25:53] starting http://127.0.0.1:8770/  root=C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe
+stockframe 控制台已启动：http://127.0.0.1:8770/
+  界面文件：C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe\web\index.html（已构建）
+  Ctrl+C 停止
+[2026-11-04 20:36:52] starting http://127.0.0.1:8770/  root=C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe
+stockframe 控制台已启动：http://127.0.0.1:8770/
+  界面文件：C:\Users\chenhao\Desktop\Platform-sys\tools\stockframe\web\index.html（已构建）
+  Ctrl+C 停止

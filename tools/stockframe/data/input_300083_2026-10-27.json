@@ -1,0 +1,551 @@
+{
+  "_note": "由自动取数装配：财务/行情字段来自公开数据源（L2），判断类字段留空待人工补充。所有假设为机械外推。",
+  "meta": {
+    "stock": {
+      "name": "创世纪",
+      "code": "300083",
+      "exchange": "SZ",
+      "currency": "CNY"
+    },
+    "analysis_date": "2026-10-27",
+    "company_type": "steady_growth",
+    "relative_valuation_metric": "PE",
+    "generated_at": "2026-10-27T17:22:11+08:00",
+    "flags": {
+      "st": false,
+      "audit_qualified": false,
+      "regulatory_investigation": false,
+      "major_fraud_red_flag": false,
+      "suspended": false,
+      "restructuring": false,
+      "new_listing_under_1y": false
+    },
+    "red_flags": []
+  },
+  "data": {
+    "market": {
+      "price_close": {
+        "value": 10.57,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "source": "东方财富-估值分析（日频行情+估值）",
+        "source_tier": "L2"
+      },
+      "pe_ttm": {
+        "value": 48.38217386,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "source": "东方财富-估值分析（日频行情+估值）",
+        "source_tier": "L2"
+      },
+      "pb": {
+        "value": 2.91033475,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "source": "东方财富-估值分析（日频行情+估值）",
+        "source_tier": "L2"
+      },
+      "pctile_pe_10y": {
+        "value": 61,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "source": "东方财富-估值分析（日频行情+估值）（窗口 2018-01-02~2026-10-27，2137 个交易日）",
+        "source_tier": "L2"
+      },
+      "pctile_pb_10y": {
+        "value": 56.6,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "source": "东方财富-估值分析（日频行情+估值）（窗口 2018-01-02~2026-10-27，2137 个交易日）",
+        "source_tier": "L2"
+      },
+      "turnover_pct": {
+        "value": 5.76,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "source": "新浪财经-日K线（东财限流后改用）",
+        "source_tier": "L2"
+      },
+      "vol_ratio_20d": {
+        "value": 1.83,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "source": "新浪财经-日K线（东财限流后改用）",
+        "source_tier": "L2"
+      },
+      "dist_ma250": {
+        "value": 2.62,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "source": "新浪财经-日K线（东财限流后改用）",
+        "source_tier": "L2"
+      },
+      "drawdown_52w": {
+        "value": 30,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "source": "新浪财经-日K线（东财限流后改用）",
+        "source_tier": "L2"
+      },
+      "inst_hold_chg_pct": {
+        "value": 2.91,
+        "as_of": "2026-09-30",
+        "available_at": "2026-10-27",
+        "source": "东方财富-十大流通股东（季报汇总）",
+        "source_tier": "L2",
+        "period_end": "2026-09-30"
+      }
+    },
+    "macro": {
+      "m1_yoy": {
+        "value": 3.2,
+        "as_of": "2026-09-01",
+        "available_at": "2026-10-15",
+        "source": "东方财富·宏观月度序列（人行/统计局）",
+        "source_tier": "L2"
+      },
+      "pmi": {
+        "value": 50.1,
+        "as_of": "2026-09-01",
+        "available_at": "2026-10-02",
+        "source": "东方财富·宏观月度序列（人行/统计局）",
+        "source_tier": "L2"
+      },
+      "rate_10y_chg_yoy": {
+        "value": -20.5,
+        "as_of": "2026-10-26",
+        "available_at": "2026-10-27",
+        "source": "中债·国债收益率曲线（10 年期，日频）",
+        "source_tier": "L2",
+        "period_end": "2026-10-26"
+      },
+      "policy_stance": {
+        "value": 4,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "period_end": "2026-10-27",
+        "source": "人工研究判断（界面录入）",
+        "source_tier": "L3"
+      }
+    },
+    "industry": {
+      "industry_growth": {
+        "value": 21.27,
+        "as_of": "2026-06-30",
+        "available_at": "2026-08-31",
+        "source": "东方财富·业绩报表 + 中登行业归属（申万二级「自动化设备」，22 家）",
+        "source_tier": "L2",
+        "period_end": "2026-06-30",
+        "proxy": true,
+        "proxy_note": "口径是「同业上市公司营收增速中位数」，不等于行业增加值；未上市份额大的行业会被龙头带偏"
+      },
+      "price_trend": {
+        "value": 3,
+        "as_of": "2026-06-30",
+        "available_at": "2026-08-31",
+        "source": "东方财富·业绩报表 + 中登行业归属（申万二级「自动化设备」，22 家）",
+        "source_tier": "L2",
+        "period_end": "2026-06-30",
+        "proxy": true,
+        "proxy_note": "用毛利率代理「价」：成本端同步上行时，价格上行可能被低估；量价背离时以价为主（0.6 权重）"
+      },
+      "stage": {
+        "value": 5,
+        "as_of": "2026-06-30",
+        "available_at": "2026-08-31",
+        "source": "东方财富·业绩报表 + 中登行业归属（申万二级「自动化设备」，22 家）",
+        "source_tier": "L2",
+        "period_end": "2026-06-30",
+        "proxy": true,
+        "proxy_note": "用增速代理阶段：无法区分「成熟但周期向上」与「成长中期」，渗透率绝对水平未见，高估风险大于低估"
+      },
+      "concentration": {
+        "value": 2,
+        "as_of": "2026-06-30",
+        "available_at": "2026-08-31",
+        "source": "东方财富·业绩报表 + 中登行业归属（申万二级「自动化设备」，22 家）",
+        "source_tier": "L2",
+        "period_end": "2026-06-30",
+        "proxy": true,
+        "proxy_note": "份额高≠有壁垒，但锚定本身就是「公司为龙头/核心供应商」，方向一致；同业集合按申万二级取，跨行业竞争未覆盖"
+      },
+      "penetration_space": {
+        "value": 4,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "period_end": "2026-10-27",
+        "source": "人工研究判断（界面录入）",
+        "source_tier": "L3"
+      }
+    },
+    "company": {
+      "moat": {
+        "value": 2,
+        "as_of": "2026-06-30",
+        "available_at": "2026-08-31",
+        "source": "自动代理：同业毛利率与 ROIC 持续性",
+        "source_tier": "L2",
+        "period_end": "2026-06-30",
+        "proxy": true,
+        "proxy_note": "代理偏「高毛利 + 稳定」型护城河；对牌照、网络效应、低成本等类型会低估，对高毛利但即将被替代的赛道会高估；资本密集的代工/制造企业 ROIC 天然偏低，代理容易把「重资产」误读成「无壁垒」，这类标的的护城河请以人工判断为准"
+      },
+      "mgmt_record": {
+        "value": 3,
+        "as_of": "2026-10-23",
+        "available_at": "2026-10-23",
+        "source": "自动代理：分红连续性与质押比例",
+        "source_tier": "L2",
+        "proxy": true,
+        "proxy_note": "「未覆盖违规、承诺不兑现、减持」—— 这三项是管理层记录里最关键的部分，代理只能看到「分钱是否持续、质押是否高」，判断强度明显弱于人工"
+      },
+      "pledge_pct": {
+        "value": 6.48,
+        "as_of": "2026-10-23",
+        "available_at": "2026-10-23",
+        "source": "中国结算·股权质押统计（东方财富转载）",
+        "source_tier": "L2"
+      },
+      "customer_concentration": {
+        "value": 6.85,
+        "as_of": "2025-12-31",
+        "available_at": "2026-04-01",
+        "source": "巨潮资讯-年度报告原文（PDF）",
+        "source_tier": "L1",
+        "period_end": "2025-12-31"
+      },
+      "logic_strength": {
+        "value": 4,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "period_end": "2026-10-27",
+        "source": "人工研究判断（界面录入）",
+        "source_tier": "L3"
+      },
+      "logic_essence": {
+        "value": "买的是钻攻机龙头把客户界面从3C消费电子平移到AI液冷/光模块结构件加工、用同一套交付体系吃到新兴产业设备资本开支的份额兑现：β是AI算力硬件扩产带来的结构件机床增量需求，α取决于创世纪能否在液冷板/光模块壳体加工中守住已进入的客户份额并把单季毛利率稳在25%以上",
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "period_end": "2026-10-27",
+        "source": "人工研究判断（界面录入·文本）",
+        "source_tier": "L3"
+      }
+    },
+    "financial": {
+      "rev_growth": {
+        "value": 42.38,
+        "as_of": "2026-09-30",
+        "available_at": "2026-10-27",
+        "source": "东方财富-主要财务指标（定期报告整理）",
+        "source_tier": "L2",
+        "period_end": "2026-09-30"
+      },
+      "np_growth": {
+        "value": 65.6,
+        "as_of": "2026-09-30",
+        "available_at": "2026-10-27",
+        "source": "东方财富-主要财务指标（定期报告整理）",
+        "source_tier": "L2",
+        "period_end": "2026-09-30"
+      },
+      "roe_ttm": {
+        "value": 6.34,
+        "as_of": "2026-09-30",
+        "available_at": "2026-10-27",
+        "source": "东方财富-主要财务指标（定期报告整理）",
+        "source_tier": "L2",
+        "period_end": "2026-09-30"
+      },
+      "ocf_np_ratio": {
+        "value": -0.52,
+        "as_of": "2026-09-30",
+        "available_at": "2026-10-27",
+        "source": "东方财富-主要财务指标（定期报告整理）",
+        "source_tier": "L2",
+        "period_end": "2026-09-30"
+      },
+      "roic": {
+        "value": 10.67,
+        "as_of": "2026-09-30",
+        "available_at": "2026-10-27",
+        "source": "东方财富-主要财务指标（定期报告整理）",
+        "source_tier": "L2",
+        "period_end": "2026-09-30"
+      },
+      "wacc_assumed": {
+        "value": 9,
+        "as_of": "2026-09-30",
+        "available_at": "2026-10-27",
+        "source": "自动规则推导（默认 9.0%，位于设计文档 8%-12% 区间）",
+        "source_tier": "L3",
+        "period_end": "2026-09-30"
+      },
+      "gm_trend": {
+        "value": -0.76,
+        "as_of": "2026-09-30",
+        "available_at": "2026-10-27",
+        "source": "东方财富-主要财务指标（定期报告整理）",
+        "source_tier": "L2",
+        "period_end": "2026-09-30"
+      },
+      "int_debt_ratio": {
+        "value": 13.2,
+        "as_of": "2026-09-30",
+        "available_at": "2026-10-27",
+        "source": "东方财富-资产负债表（定期报告整理）",
+        "source_tier": "L2",
+        "period_end": "2026-09-30"
+      },
+      "goodwill_pct": {
+        "value": 26.77,
+        "as_of": "2026-09-30",
+        "available_at": "2026-10-27",
+        "source": "东方财富-资产负债表（定期报告整理）",
+        "source_tier": "L2",
+        "period_end": "2026-09-30"
+      },
+      "wc_growth_gap": {
+        "value": 9.66,
+        "as_of": "2026-09-30",
+        "available_at": "2026-10-27",
+        "source": "东方财富-资产负债表（定期报告整理）",
+        "source_tier": "L2",
+        "period_end": "2026-09-30"
+      }
+    },
+    "valuation": {
+      "pe_hist_p25": {
+        "value": 17.96,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "source": "东方财富-估值分析（日频行情+估值）",
+        "source_tier": "L2"
+      },
+      "pe_hist_p75": {
+        "value": 70.59,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "source": "东方财富-估值分析（日频行情+估值）",
+        "source_tier": "L2"
+      },
+      "eps_ttm": {
+        "value": 0.23,
+        "as_of": "2026-09-30",
+        "available_at": "2026-10-27",
+        "source": "东方财富-主要财务指标（定期报告整理）",
+        "source_tier": "L2",
+        "period_end": "2026-09-30"
+      },
+      "peer_pe_median": {
+        "value": 51.66,
+        "as_of": "2026-10-27",
+        "available_at": "2026-10-27",
+        "source": "东方财富-估值分析（日频行情+估值）（自动化设备 板块 64 家中位数）",
+        "source_tier": "L2"
+      }
+    }
+  },
+  "assumptions": {
+    "_kind": "assumption（自动模式：机械外推假设，与实际数据严格隔离；报告中标注为假设）",
+    "eps_fwd": {
+      "base": 0.243,
+      "optimistic": 0.249,
+      "pessimistic": 0.235
+    },
+    "scenario_probabilities": {
+      "optimistic": 0.25,
+      "base": 0.5,
+      "pessimistic": 0.25
+    },
+    "dcf": {
+      "base": {
+        "wacc": 0.09,
+        "terminal_growth": 0.025,
+        "revenue_growth_path": [
+          0.0553,
+          0.047,
+          0.0387,
+          0.0304,
+          0.0221
+        ],
+        "ebit_margin_path": [
+          0.1244,
+          0.1256,
+          0.1269,
+          0.1275,
+          0.1281
+        ],
+        "tax_rate": 0.099,
+        "dep_amort_pct_rev": 0.05,
+        "capex_pct_rev": 0.07,
+        "nwc_pct_rev_delta": 0.01,
+        "revenue_base": 69.42,
+        "net_debt": 13.09,
+        "shares": 17.005
+      },
+      "optimistic": {
+        "wacc": 0.088,
+        "terminal_growth": 0.028,
+        "revenue_growth_path": [
+          0.083,
+          0.0747,
+          0.0647,
+          0.0539,
+          0.0415
+        ],
+        "ebit_margin_path": [
+          0.1244,
+          0.1281,
+          0.1318,
+          0.1343,
+          0.1368
+        ],
+        "tax_rate": 0.099,
+        "dep_amort_pct_rev": 0.05,
+        "capex_pct_rev": 0.075,
+        "nwc_pct_rev_delta": 0.01,
+        "revenue_base": 69.42,
+        "net_debt": 13.09,
+        "shares": 17.005
+      },
+      "pessimistic": {
+        "wacc": 0.102,
+        "terminal_growth": 0.02,
+        "revenue_growth_path": [
+          0.0221,
+          0.0188,
+          0.0155,
+          0.0122,
+          0.01
+        ],
+        "ebit_margin_path": [
+          0.1244,
+          0.1206,
+          0.1169,
+          0.1144,
+          0.1119
+        ],
+        "tax_rate": 0.099,
+        "dep_amort_pct_rev": 0.05,
+        "capex_pct_rev": 0.065,
+        "nwc_pct_rev_delta": 0.012,
+        "revenue_base": 69.42,
+        "net_debt": 13.09,
+        "shares": 17.005
+      }
+    },
+    "scenario_notes": {
+      "optimistic": {
+        "key_assumptions": [
+          "营收增速维持 8.3% 且利润率每年改善约 3%（机械外推，非一致预期）",
+          "WACC 下修 20bp，永续增长 2.8%"
+        ],
+        "drivers": [
+          "行业景气超预期",
+          "份额提升或新产品放量"
+        ],
+        "falsification": "若下期营收同比低于 5.0% 或毛利率同比下滑，乐观情景失效"
+      },
+      "base": {
+        "key_assumptions": [
+          "营收增速自 5.5% 逐年递减至 2.2%",
+          "营业利润率由 12.4% 起每年小幅改善"
+        ],
+        "drivers": [
+          "现有业务自然增长",
+          "利润率稳定"
+        ],
+        "falsification": "若营收增速跌破 2.8% 或利润率下行超过 2pp，基准情景失效"
+      },
+      "pessimistic": {
+        "key_assumptions": [
+          "营收增速降至 2.2%",
+          "利润率每年收缩约 3%，WACC 上修 120bp"
+        ],
+        "drivers": [
+          "需求走弱",
+          "价格战/成本上行"
+        ],
+        "falsification": "若营收与利润率同时低于悲观路径，需重估公司竞争力"
+      }
+    }
+  },
+  "risks": [
+    {
+      "id": "R1",
+      "name": "估值均值回归",
+      "category": "price",
+      "probability": 3,
+      "impact": 3,
+      "trigger": {
+        "metric": "market.pctile_pe_10y",
+        "threshold": "> 71% 或快速回落至 <30%"
+      },
+      "mitigation": "以 DCF 安全边际为锚，分位 >80% 时不追加；用盈利增长消化估值前不提升权重",
+      "evidence": "自动规则 R_VALUATION_PCT：当前 PE 分位 61.0%（2137 个交易日样本），档位中"
+    },
+    {
+      "id": "R2",
+      "name": "业绩增速不及预期",
+      "category": "demand",
+      "probability": 3,
+      "impact": 4,
+      "trigger": {
+        "metric": "financial.np_growth",
+        "threshold": "连续两期低于 0.0%"
+      },
+      "mitigation": "跟踪季度营收/净利同比与一致预期差；增速转负即触发财务维度重估",
+      "evidence": "自动规则 R_EARNINGS_MOMENTUM：最近报告期（2026-09-30 披露于 2026-10-27）净利同比 65.60%"
+    },
+    {
+      "id": "R3",
+      "name": "盈利现金含量下降",
+      "category": "finance",
+      "probability": 4,
+      "impact": 4,
+      "trigger": {
+        "metric": "financial.ocf_np_ratio",
+        "threshold": "< 0.7（连续两期）"
+      },
+      "mitigation": "核对应收/存货与收入增速差；现金流与利润背离时下调财务维度得分",
+      "evidence": "自动规则 R_CASH_CONVERSION：经营现金流/净利润 = -0.52"
+    }
+  ],
+  "catalysts": [
+    {
+      "date": "2026-10-31",
+      "event": "三季报披露（法定截止日，2026 年 三季报）",
+      "type": "earnings",
+      "direction": "?",
+      "strength": "中",
+      "expected_impact": "定期报告是验证跟踪清单阈值的主要时点；实际披露日以公司预约公告为准",
+      "priced_in": "?",
+      "verify_method": "对照跟踪清单中的营收增速 / ROE / 现金流阈值逐项核验",
+      "source": "交易所定期报告披露规则（法定截止日）",
+      "source_tier": "L1",
+      "warning": "自动生成：仅有法定截止日，方向与定价程度未知，需人工补入事件型催化"
+    },
+    {
+      "date": "2027-04-30",
+      "event": "年报披露（法定截止日，2026 年 年报）",
+      "type": "earnings",
+      "direction": "?",
+      "strength": "中",
+      "expected_impact": "定期报告是验证跟踪清单阈值的主要时点；实际披露日以公司预约公告为准",
+      "priced_in": "?",
+      "verify_method": "对照跟踪清单中的营收增速 / ROE / 现金流阈值逐项核验",
+      "source": "交易所定期报告披露规则（法定截止日）",
+      "source_tier": "L1",
+      "warning": "自动生成：仅有法定截止日，方向与定价程度未知，需人工补入事件型催化"
+    }
+  ],
+  "logic_items": [
+    {
+      "statement": "盈利质量支撑：ROE(TTM) 6.34%、经营现金流/净利润 -0.52x；若可持续，则估值中枢有基本面支撑",
+      "transmission": "ROE 与现金转化率维持 → 盈利可持续性成立 → 估值折价收窄",
+      "priced_in": "部分定价",
+      "verify_metric": "financial.roe_ttm",
+      "verify_threshold": "≥ 5.1%（当前 6.34% 的八成）",
+      "source": "自动规则推导（需人工复核，非研究结论）"
+    }
+  ]
+}

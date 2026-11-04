@@ -1,0 +1,2133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.org/stockframe/report-schema-0.1.0.json",
+  "title": "stockframe 个股分析报告 v0.1.0",
+  "description": "中线(6-12个月)研究复核为主、短线兼顾的个股分析报告输出契约。约束：评分可拆解可追溯；结论条件化并附证伪条件；全部数据带时点与来源；禁止未来函数(available_at<=analysis_date 由引擎强制)；四桶决策不含买卖建议。注意：三情景概率合计=1、PIT 合法性等跨字段约束由引擎(validate.py)在 schema 校验之外额外强制。",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "meta",
+    "conclusion",
+    "scorecard",
+    "valuation",
+    "scenarios",
+    "risk_matrix",
+    "catalyst_calendar",
+    "tracking_checklist",
+    "data_quality",
+    "evidence_log",
+    "disclaimer"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "meta": {
+      "type": "object",
+      "required": [
+        "stock",
+        "analysis_date",
+        "price_ref",
+        "horizons",
+        "framework_version",
+        "generated_at",
+        "data_cutoff",
+        "company_type",
+        "relative_valuation_metric"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "stock": {
+          "type": "object",
+          "required": [
+            "name",
+            "code",
+            "exchange",
+            "currency"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "code": {
+              "type": "string",
+              "minLength": 1
+            },
+            "exchange": {
+              "type": "string"
+            },
+            "currency": {
+              "type": "string"
+            }
+          }
+        },
+        "analysis_date": {
+          "type": "string",
+          "format": "date",
+          "description": "分析时点(北京时区自然日)。全部入模数据 available_at 必须 <= 该日期，由 PIT 守卫强制。"
+        },
+        "price_ref": {
+          "type": "object",
+          "required": [
+            "close",
+            "as_of",
+            "source",
+            "source_tier"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "close": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "收盘价；缺失时为 null（DQ 强制人工复核，不补零）。",
+              "exclusiveMinimum": 0
+            },
+            "as_of": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            },
+            "source": {
+              "type": "string"
+            },
+            "source_tier": {
+              "enum": [
+                "L1",
+                "L2",
+                "L3",
+                "L4",
+                null
+              ]
+            }
+          }
+        },
+        "horizons": {
+          "type": "object",
+          "required": [
+            "primary",
+            "reference"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "primary": {
+              "const": "mid_term_6_12m"
+            },
+            "reference": {
+              "const": "short_term_0_3m"
+            }
+          }
+        },
+        "framework_version": {
+          "type": "string"
+        },
+        "generated_at": {
+          "type": "string"
+        },
+        "data_cutoff": {
+          "type": "string",
+          "format": "date",
+          "description": "入模数据 available_at 的最大值。"
+        },
+        "company_type": {
+          "enum": [
+            "high_growth",
+            "steady_growth",
+            "cyclical",
+            "value",
+            "resource",
+            "platform",
+            "financial",
+            "bank",
+            "insurance",
+            "reit",
+            "loss_making",
+            "pre_revenue"
+          ],
+          "description": "公司类型决定估值方法适用性（datadict.COMPANY_PROFILES）：金融/亏损/未盈利类型不出 DCF 区间。"
+        },
+        "company_type_effective": {
+          "enum": [
+            "high_growth",
+            "steady_growth",
+            "cyclical",
+            "value",
+            "resource",
+            "platform",
+            "financial",
+            "bank",
+            "insurance",
+            "reit",
+            "loss_making",
+            "pre_revenue"
+          ],
+          "description": "实际生效的类型：声明为成长型但 EPS≤0/PE≤0 时会被前门升级为 loss_making。"
+        },
+        "relative_valuation_metric": {
+          "enum": [
+            "PE",
+            "PB",
+            "EV_EBITDA",
+            "PS",
+            "PEG"
+          ],
+          "description": "相对估值主口径。"
+        }
+      }
+    },
+    "conclusion": {
+      "type": "object",
+      "required": [
+        "bucket_mid",
+        "bucket_short",
+        "composite_score_mid",
+        "composite_score_short",
+          "confidence",
+          "decision",
+          "stance",
+          "sensitivity",
+        "summary",
+        "maintain_conditions",
+        "falsification",
+        "valid_until",
+        "review_cadence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "bucket_mid": {
+          "enum": [
+            "入池",
+            "观察",
+            "回避",
+            "人工复核"
+          ],
+          "description": "中线主桶。语义见设计文档 §11；禁止附带买卖建议。"
+        },
+        "bucket_short": {
+          "enum": [
+            "入池",
+            "观察",
+            "回避",
+            "人工复核"
+          ],
+          "description": "短线参考桶，不改变中线定位。"
+        },
+        "composite_score_mid": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "composite_score_short": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "confidence": {
+          "$ref": "#/definitions/confidence"
+        },
+        "decision": {
+          "type": "object",
+          "description": "决策溯源：哪条规则决定了当前分桶，以及判定理由（反黑箱）。",
+          "required": [
+            "rule_id",
+            "reasons"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "rule_id": {
+              "enum": [
+                "R1_HARD_FLAG",
+                "R2_RED_FLAGS",
+                "R3_DQ_FORCED",
+                "R4_SPECIAL_STATUS",
+                "R5_SIGNAL_CONFLICT",
+                "R6_SCORE_BAND",
+                "R7_COVERAGE",
+                "R8_DATA_COVERAGE",
+                "R9_MODEL_NOT_APPLICABLE"
+              ],
+              "description": "R1 硬红旗/R2 红旗数≥2/R3 数据质量强制/R4 特殊状态/R5 信号冲突/R6 分数分桶/R7 判断层覆盖不足/R8 数据层覆盖不足/R9 估值方法不适用。"
+            },
+            "reasons": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "stance": {
+          "type": "object",
+          "description": "立场句：把分桶翻成「现在该不该动手」的一句话答案。四档与四个桶一一对应（insufficient/avoid 规避/hold_off 暂不介入/research 够格研究），不引入第二种判定。措辞只说框架立场，不构成交易指令（A4 词表拦截买入/卖出/加仓等）。",
+          "required": [
+            "code",
+            "label",
+            "headline",
+            "basis",
+            "do_next",
+            "abandon",
+            "caveat"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "enum": [
+                "insufficient",
+                "avoid",
+                "hold_off",
+                "research"
+              ],
+              "description": "insufficient=本框架不下结论（人工复核桶）；avoid=按框架规避；hold_off=暂不介入（观察桶）；research=够格研究（入池桶，入池≠现在买）。"
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "description": "给读者的短标签，如「暂不介入」。"
+            },
+            "headline": {
+              "type": "string",
+              "minLength": 1,
+              "description": "一句结论：分数与线的位置关系，直接回答「现在能不能动手」。"
+            },
+            "basis": {
+              "type": "string",
+              "minLength": 1,
+              "description": "为什么是这个立场：分档规则 + 当前所在位置。"
+            },
+            "do_next": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              },
+              "description": "读者下一步该做什么（非交易指令）：等什么、补什么、核对什么。"
+            },
+            "abandon": {
+              "type": "string",
+              "minLength": 1,
+              "description": "什么情况下必须重看：分数跌破哪条线，或哪条证伪条件触发。"
+            },
+            "caveat": {
+              "type": "string",
+              "minLength": 1,
+              "description": "能力边界：本框架没有回测样本、不给涨跌概率，因此不出现买卖措辞，只回答「够不够格」。"
+            }
+          }
+        },
+        "sensitivity": {
+          "type": "object",
+          "description": "结论翻转点：把某一维度单独下调，分桶第一次改变时的位移；同时给出向上还有没有档位。只覆盖分数驱动的机制（综合分跌破分界线 / 维度跌破 4.0 / R5 信号冲突）；R1–R4、R7–R9 由输入与覆盖决定。这是对结论本身的预测，不是价格预测。",
+          "required": [
+            "boundary",
+            "distance",
+            "distance_anchors",
+            "next_bucket",
+            "band",
+            "headroom",
+            "drivers",
+            "insensitive",
+            "unscored",
+            "note"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "band": {
+              "type": "object",
+              "description": "分数在本桶区间里的相对位置：0=刚够格，1=触到本桶天花板。用来给 distance 一个尺度（0.64 分除以桶高 3 分 = 21%，才读得出「刚过线」）。",
+              "required": ["low", "high", "position", "zone"],
+              "additionalProperties": false,
+              "properties": {
+                "low": {"type": ["number", "null"]},
+                "high": {"type": ["number", "null"]},
+                "position": {
+                  "type": ["number", "null"],
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "zone": {
+                  "enum": ["下沿", "中段", "上沿", null],
+                  "description": "桶内位置三等分的纯描述，不是对标的的评价。"
+                }
+              }
+            },
+            "headroom": {
+              "type": "object",
+              "description": "往好里走还有没有档位可升、还差多少分。入池是最高档，对它而言 at_top=true 且 room=null——只有下行风险，没有上行档位。",
+              "required": ["at_top", "ceiling", "room", "next_up"],
+              "additionalProperties": false,
+              "properties": {
+                "at_top": {"type": "boolean"},
+                "ceiling": {"type": ["number", "null"]},
+                "room": {"type": ["number", "null"]},
+                "next_up": {
+                  "enum": ["入池", "观察", "回避", "人工复核", null]
+                }
+              }
+            },
+            "distance_anchors": {
+              "type": ["number", "null"],
+              "description": "distance 折算成档（每档 2.5 分）。0.26 档读作「不足一档」。"
+            },
+            "boundary": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "当前桶往下走的分界线：入池看 7.0，观察看 3.5（5.0 以下到 3.5 仍是观察，跌破 5.0 分桶不变）；回避桶为 null。"
+            },
+            "distance": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "综合分到该分界线的距离，负数表示已经在界外。"
+            },
+            "next_bucket": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "跌破分界线后落入的桶；回避桶为 null。"
+            },
+            "drivers": {
+              "type": "array",
+              "description": "按位移升序排列：越靠前越能单点改变结论。",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "name",
+                  "weight",
+                  "score",
+                  "delta",
+                  "score_after",
+                  "anchors",
+                  "bucket_after",
+                  "mechanism"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  },
+                  "score": {
+                    "type": "number"
+                  },
+                  "delta": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "description": "该维度得分需要下调多少分，分桶才第一次改变。"
+                  },
+                  "score_after": {
+                    "type": "number",
+                    "description": "翻桶时的维度得分（= score - delta）。"
+                  },
+                  "anchors": {
+                    "type": [
+                      "number",
+                      "null"
+                    ],
+                    "description": "折算档数（每档 2.5 分）；非判断层维度为 null——数据类维度没有档位可言。"
+                  },
+                  "bucket_after": {
+                    "enum": [
+                      "入池",
+                      "观察",
+                      "回避",
+                      "人工复核"
+                    ]
+                  },
+                  "mechanism": {
+                    "enum": [
+                      "score_band",
+                      "dim_floor",
+                      "signal_conflict"
+                    ],
+                    "description": "score_band 综合分跌破分界线 / dim_floor 跌破 4.0 入池下限 / signal_conflict R5 转人工复核。"
+                  }
+                }
+              }
+            },
+            "insensitive": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "即使归零也不改变分桶的维度（已评分）。"
+            },
+            "unscored": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "未评分维度，无法计算位移。"
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 30,
+          "description": "结论摘要：一句话本质 + 分桶理由 + 置信度归因。"
+        },
+        "maintain_conditions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/condition"
+          }
+        },
+        "falsification": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/condition"
+          }
+        },
+        "valid_until": {
+          "type": "string",
+          "format": "date"
+        },
+        "review_cadence": {
+          "type": "string",
+          "description": "复核节奏：中线按季度，短线事件驱动。"
+        }
+      }
+    },
+    "scorecard": {
+      "type": "object",
+      "required": [
+        "scale",
+        "weights",
+        "dimensions",
+        "evidence_coverage",
+        "score_attribution"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "score_attribution": {
+          "type": "object",
+          "description": "综合分拆成判断层/数据层/风险催化层三块贡献，三项相加=综合分；weight_share 为该层在已评维度中的权重占比。",
+          "required": [
+            "judgement",
+            "data",
+            "risk_catalyst",
+            "total",
+            "weight_share",
+            "note"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "judgement": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "data": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "risk_catalyst": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "total": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "weight_share": {
+              "type": "object",
+              "required": [
+                "judgement",
+                "data",
+                "risk_catalyst"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "judgement": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "data": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "risk_catalyst": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              }
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        },
+        "evidence_coverage": {
+          "type": "object",
+          "description": "研究判断层证据覆盖：宏观/行业/公司的指标级覆盖比例（未补零）。低于阈值时不允许给正式分桶。total_ratio 为全维度覆盖，仅供参考。",
+          "required": [
+            "ratio",
+            "threshold",
+            "basis",
+            "total_ratio",
+            "by_dimension",
+            "scored_dimensions",
+            "missing_dimensions",
+            "note"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "ratio": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "scored_dimensions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "missing_dimensions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "id",
+                  "name",
+                  "weight_mid"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "weight_mid": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  }
+                }
+              }
+            },
+            "note": {
+              "type": "string"
+            },
+            "basis": {
+              "type": "string"
+            },
+            "total_ratio": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "by_dimension": {
+              "type": "object",
+              "description": "各维度自身的指标级覆盖比例（0-1）",
+              "additionalProperties": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          }
+        },
+        "scale": {
+          "const": "0-10"
+        },
+        "weights": {
+          "type": "object",
+          "required": [
+            "mid_term",
+            "short_term"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "mid_term": {
+              "$ref": "#/definitions/dimensionWeights"
+            },
+            "short_term": {
+              "$ref": "#/definitions/dimensionWeights"
+            }
+          }
+        },
+        "dimensions": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 8,
+          "items": {
+            "$ref": "#/definitions/dimension"
+          }
+        }
+      }
+    },
+    "valuation": {
+      "type": "object",
+      "required": [
+        "gate",
+        "dcf",
+        "relative",
+        "synthesis"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "gate": {
+          "type": "object",
+          "description": "方法适用性前门：先判断该不该算，再谈算多少。dcf_applicable=false 时报告不出区间与安全边际。",
+          "required": [
+            "company_type",
+            "type_label",
+            "dcf_applicable",
+            "code",
+            "reason",
+            "relative_metric"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "company_type": {
+              "type": "string"
+            },
+            "type_label": {
+              "type": "string"
+            },
+            "dcf_applicable": {
+              "type": "boolean"
+            },
+            "code": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "null=适用；DCF_NOT_APPLICABLE=行业类型不适用；DCF_LOSS_MAKING=亏损状态不适用。"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "relative_metric": {
+              "type": "object",
+              "required": [
+                "requested",
+                "supported",
+                "note"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "requested": {
+                  "type": "string"
+                },
+                "supported": {
+                  "type": "boolean"
+                },
+                "note": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "dcf": {
+          "type": "object",
+          "required": [
+            "method",
+            "assumptions_kind",
+            "applicable",
+            "warnings"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "applicable": {
+              "type": "boolean"
+            },
+            "gate": {
+              "type": "object",
+              "required": [
+                "code",
+                "reason"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "reason": {
+                  "type": "string"
+                }
+              }
+            },
+            "method": {
+              "const": "FCFF_DCF"
+            },
+            "assumptions_kind": {
+              "const": "assumption"
+            },
+            "scenario_results": {
+              "type": "object",
+              "required": [
+                "optimistic",
+                "base",
+                "pessimistic"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "optimistic": {
+                  "$ref": "#/definitions/dcfScenario"
+                },
+                "base": {
+                  "$ref": "#/definitions/dcfScenario"
+                },
+                "pessimistic": {
+                  "$ref": "#/definitions/dcfScenario"
+                }
+              }
+            },
+            "sensitivity_grid_base": {
+              "type": "object",
+              "required": [
+                "wacc_values",
+                "g_values",
+                "values"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "wacc_values": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 3,
+                  "maxItems": 7
+                },
+                "g_values": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 3,
+                  "maxItems": 7
+                },
+                "values": {
+                  "type": "array",
+                  "description": "values[i][j] = wacc_values[i], g_values[j] 对应的每股价值；不可计算格点为 null。",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "warnings": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "applicable": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "applicable"
+                ]
+              },
+              "then": {
+                "required": [
+                  "scenario_results",
+                  "sensitivity_grid_base"
+                ]
+              },
+              "else": {
+                "required": [
+                  "gate"
+                ]
+              }
+            }
+          ]
+        },
+        "relative": {
+          "type": "object",
+          "required": [
+            "method",
+            "available",
+            "metric",
+            "current",
+            "percentile_10y",
+            "band",
+            "bands_definition",
+            "implied_price_range",
+            "peer_anchor",
+            "priced_in_narrative"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "method": {
+              "const": "percentile_band"
+            },
+            "available": {
+              "type": "boolean",
+              "description": "false = 必需输入缺失，本法不可用；相关数值输出 null，禁止补零或外推。"
+            },
+            "metric": {
+              "enum": [
+                "PE",
+                "PB",
+                "EV_EBITDA",
+                "PS",
+                "PEG"
+              ]
+            },
+            "current": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "当前倍数。亏损公司 PE 可以为负——负值表示不可用，不是「极度低估」。"
+            },
+            "percentile_10y": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 100
+            },
+            "band": {
+              "enum": [
+                "low",
+                "neutral",
+                "high",
+                null
+              ]
+            },
+            "bands_definition": {
+              "type": "object",
+              "required": [
+                "low",
+                "neutral",
+                "high"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "low": {
+                  "const": "<30%"
+                },
+                "neutral": {
+                  "const": "30-70%"
+                },
+                "high": {
+                  "const": ">70%"
+                }
+              }
+            },
+            "implied_price_range": {
+              "type": "object",
+              "required": [
+                "low",
+                "high",
+                "eps_used",
+                "eps_kind"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "low": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "exclusiveMinimum": 0
+                },
+                "high": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "exclusiveMinimum": 0
+                },
+                "eps_used": {
+                  "type": [
+                    "number",
+                    "null"
+                  ]
+                },
+                "eps_kind": {
+                  "enum": [
+                    "TTM",
+                    "fwd_base_assumption"
+                  ]
+                }
+              }
+            },
+            "peer_anchor": {
+              "type": "object",
+              "required": [
+                "peer_median",
+                "premium_pct",
+                "implied_price",
+                "comparable",
+                "note"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "peer_median": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "exclusiveMinimum": 0
+                },
+                "premium_pct": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "description": "本公司估值相对同业中位数的溢价率（%），负值为折价。"
+                },
+                "implied_price": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "exclusiveMinimum": 0,
+                  "description": "仅在倍数处于 0.5–2 倍可比区间时给出；不可比时为 null，避免用不可比的锚倒推点位。"
+                },
+                "comparable": {
+                  "type": "boolean",
+                  "description": "本公司估值与同业中位数是否处于可比区间（0.5–2 倍）。"
+                },
+                "note": {
+                  "type": "string"
+                }
+              }
+            },
+            "priced_in_narrative": {
+              "type": "string",
+              "description": "当前估值已定价了什么的拆解。"
+            }
+          }
+        },
+        "synthesis": {
+          "type": "object",
+          "required": [
+            "dcf_base_range",
+            "relative_range",
+            "combined_range",
+            "mode",
+            "safety_margin_pct",
+            "margin_basis",
+            "dcf_margin_pct",
+            "relative_margin_pct",
+            "divergence_pct",
+            "confidence_level",
+            "reading",
+            "note"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "dcf_base_range": {
+              "$ref": "#/definitions/nullablePriceRange"
+            },
+            "relative_range": {
+              "$ref": "#/definitions/nullablePriceRange"
+            },
+            "combined_range": {
+              "$ref": "#/definitions/nullablePriceRange"
+            },
+            "mode": {
+              "enum": [
+                "intersection",
+                "union",
+                "dcf_only",
+                "relative_only",
+                "not_applicable",
+                "rejected"
+              ],
+              "description": "dcf_only/relative_only = 单法；not_applicable = 前门判定方法不适用（不出区间）；rejected = 区间含非正值被拒。"
+            },
+            "safety_margin_pct": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "合成区间中枢相对现价的偏离。仅当两法区间有重叠（intersection）或只有单法时为数字；两法无重叠（union）时为 null——并集中点没有经济含义，不能当作安全边际。"
+            },
+            "margin_basis": {
+              "enum": [
+                "combined",
+                "none"
+              ],
+              "description": "combined = safety_margin_pct 可读；none = 不给合成安全边际（union/不适用/被拒），改看 dcf_margin_pct 与 relative_margin_pct。"
+            },
+            "dcf_margin_pct": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "DCF 基准情景中枢相对现价的偏离（单法口径）。与评分卡 val.dcf_margin 同源；两法分歧大且终值占比高时，该指标被排除在评分外（见 data_quality.notes）。"
+            },
+            "relative_margin_pct": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "相对估值分位带区间中枢相对现价的偏离（单法口径）。"
+            },
+            "divergence_pct": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "两法中枢差异（相对法中枢 / DCF 中枢 - 1）。分歧越大，越应先解释假设差异再谈贵贱。"
+            },
+            "confidence_level": {
+              "enum": [
+                "high",
+                "medium",
+                "low",
+                "none"
+              ]
+            },
+            "reading": {
+              "$ref": "#/definitions/valuationReading"
+            },
+            "note": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 3,
+      "description": "乐观/基准/悲观三情景；probability 合计必须=1(引擎校验)。估值前门判定不适用时为空数组——没有 DCF 就没有情景价位，不编。",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "probability",
+          "key_assumptions",
+          "value_per_share_range",
+          "drivers",
+          "falsification",
+          "delta_vs_base"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "enum": [
+              "optimistic",
+              "base",
+              "pessimistic"
+            ]
+          },
+          "probability": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "key_assumptions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "value_per_share_range": {
+            "$ref": "#/definitions/priceRange"
+          },
+          "drivers": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "falsification": {
+            "type": "string",
+            "minLength": 10
+          },
+          "delta_vs_base": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "risk_matrix": {
+      "type": "object",
+      "required": [
+        "scale",
+        "risks",
+        "grid",
+        "top_risk_ids"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "scale": {
+          "const": "5x5_P_x_I"
+        },
+        "risks": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "category",
+              "probability",
+              "impact",
+              "score",
+              "level",
+              "trigger",
+              "mitigation",
+              "evidence"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^R\\d+$"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 2
+              },
+              "category": {
+                "enum": [
+                  "demand",
+                  "price",
+                  "customer_concentration",
+                  "capacity",
+                  "policy",
+                  "competition",
+                  "governance",
+                  "finance",
+                  "macro",
+                  "other"
+                ]
+              },
+              "probability": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "impact": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "score": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 25
+              },
+              "level": {
+                "enum": [
+                  "高",
+                  "中",
+                  "低"
+                ]
+              },
+              "trigger": {
+                "type": "object",
+                "required": [
+                  "metric",
+                  "threshold"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "metric": {
+                    "type": "string"
+                  },
+                  "threshold": {
+                    "type": "string"
+                  }
+                }
+              },
+              "mitigation": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "grid": {
+          "type": "object",
+          "required": [
+            "p_levels",
+            "i_levels",
+            "counts"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "p_levels": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 5,
+              "maxItems": 5
+            },
+            "i_levels": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 5,
+              "maxItems": 5
+            },
+            "counts": {
+              "type": "array",
+              "description": "counts[i][j] = probability=p_levels[i], impact=i_levels[j] 的风险条数。",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "top_risk_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^R\\d+$"
+          }
+        }
+      }
+    },
+    "catalyst_calendar": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "date",
+          "event",
+          "type",
+          "direction",
+          "strength",
+          "expected_impact",
+          "priced_in",
+          "verify_method",
+          "warning"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "description": "具体日期或窗口描述，如 2026-11-15 或 2026Q4。"
+          },
+          "event": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "earnings",
+              "policy",
+              "industry",
+              "company",
+              "overseas",
+              "unverified_rumor"
+            ]
+          },
+          "direction": {
+            "enum": [
+              "+",
+              "-",
+              "?"
+            ],
+            "description": "影响方向；'?' = 方向待定（时点事件，结果未知），自动模式生成时使用，须人工补判。"
+          },
+          "strength": {
+            "enum": [
+              "强",
+              "中",
+              "弱",
+              "噪音"
+            ]
+          },
+          "expected_impact": {
+            "type": "string"
+          },
+          "priced_in": {
+            "enum": [
+              "未定价",
+              "部分定价",
+              "已定价",
+              "?"
+            ],
+            "description": "'?' = 定价程度待判定，自动模式生成时使用。"
+          },
+          "verify_method": {
+            "type": "string"
+          },
+          "warning": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "如利好已定价的兑现风险提示。"
+          }
+        }
+      }
+    },
+    "tracking_checklist": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "item",
+          "metric",
+          "threshold",
+          "direction",
+          "cadence",
+          "action_on_trigger",
+          "source",
+          "origin"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^T\\d+$"
+          },
+          "item": {
+            "type": "string"
+          },
+          "metric": {
+            "type": "string"
+          },
+          "threshold": {
+            "type": "string"
+          },
+          "direction": {
+            "enum": [
+              "below",
+              "above"
+            ]
+          },
+          "cadence": {
+            "enum": [
+              "event",
+              "daily",
+              "weekly",
+              "quarterly"
+            ]
+          },
+          "action_on_trigger": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string",
+            "description": "该指标的数据来源。"
+          },
+          "origin": {
+            "enum": [
+              "falsification",
+              "risk_trigger",
+              "catalyst_verify",
+              "disclosure"
+            ]
+          }
+        }
+      }
+    },
+    "data_quality": {
+      "type": "object",
+      "required": [
+        "overall",
+        "completeness",
+        "timeliness",
+        "source_tier_score",
+        "min_tier_used",
+        "tier_distribution",
+        "gaps",
+        "forced_manual_review",
+        "notes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "overall": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "completeness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "timeliness": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "source_tier_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "min_tier_used": {
+          "enum": [
+            "L1",
+            "L2",
+            "L3"
+          ]
+        },
+        "tier_distribution": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "description": "各来源等级入模字段数。L4 不允许入模。"
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "field",
+              "reason"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "forced_manual_review": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "evidence_log": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "field_id",
+          "source",
+          "source_tier",
+          "as_of",
+          "available_at",
+          "used_by"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "field_id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "source_tier": {
+            "enum": [
+              "L1",
+              "L2",
+              "L3",
+              "L4"
+            ]
+          },
+          "as_of": {
+            "type": "string",
+            "format": "date"
+          },
+          "available_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "used_by": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "proxy": {
+            "type": "boolean",
+            "description": "true = 该字段是按固定公式推断的判断档位（代理），不是研究结论；须与人工判断区分"
+          }
+        }
+      }
+    },
+    "disclaimer": {
+      "type": "string",
+      "description": "固定免责声明文案，禁止改写。由引擎常量注入。",
+      "minLength": 50
+    }
+  },
+  "definitions": {
+    "confidence": {
+      "type": "object",
+      "required": [
+        "level",
+        "value"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "level": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "value": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "condition": {
+      "type": "object",
+      "required": [
+        "id",
+        "condition",
+        "metric",
+        "threshold",
+        "source"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[CF]\\d+$"
+        },
+        "condition": {
+          "type": "string",
+          "minLength": 5
+        },
+        "metric": {
+          "type": "string",
+          "description": "可观察指标。"
+        },
+        "threshold": {
+          "type": "string",
+          "description": "阈值，含方向与数值。"
+        },
+        "source": {
+          "type": "string",
+          "description": "该指标的数据来源。"
+        }
+      }
+    },
+    "dimensionWeights": {
+      "type": "object",
+      "required": [
+        "macro",
+        "industry",
+        "company",
+        "financial",
+        "valuation",
+        "catalyst",
+        "trading",
+        "risk"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "macro": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "industry": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "company": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "financial": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "valuation": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "catalyst": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "trading": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "risk": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "dimension": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "score_mid",
+        "score_short",
+        "confidence",
+        "factors"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "enum": [
+            "macro",
+            "industry",
+            "company",
+            "financial",
+            "valuation",
+            "catalyst",
+            "trading",
+            "risk"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "score_mid": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 10
+        },
+        "score_short": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 10
+        },
+        "confidence": {
+          "$ref": "#/definitions/confidence"
+        },
+        "factors": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "weight",
+              "renormalized",
+              "available_weight_ratio",
+              "indicators"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "weight": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "renormalized": {
+                "type": "boolean",
+                "description": "因子内是否有指标缺失并重归一化。"
+              },
+              "available_weight_ratio": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "indicators": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "name",
+                    "unit",
+                    "value",
+                    "band",
+                    "score",
+                    "weight",
+                    "missing",
+                    "rationale",
+                    "evidence"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "unit": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": [
+                        "number",
+                        "string",
+                        "null"
+                      ],
+                      "description": "原始值；定性指标为档位描述字符串。"
+                    },
+                    "band": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "命中的量规带标签；缺失时为 null。"
+                    },
+                    "score": {
+                      "type": [
+                        "number",
+                        "null"
+                      ],
+                      "minimum": 0,
+                      "maximum": 10
+                    },
+                    "weight": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "missing": {
+                      "type": "boolean"
+                    },
+                    "suppressed": {
+                      "type": "boolean",
+                      "description": "方法性抑制：指标本有数但对本标的不成立（如两法分歧大且终值主导时的 DCF 安全边际）。计入 missing，但不计入覆盖率分母——否则方法问题会被误报成缺数问题。"
+                    },
+                    "rationale": {
+                      "type": "string",
+                      "description": "该指标收录与阈值锚定依据。"
+                    },
+                    "evidence": {
+                      "type": "object",
+                      "required": [
+                        "source",
+                        "source_tier",
+                        "as_of",
+                        "available_at"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "source": {
+                          "type": "string"
+                        },
+                        "source_tier": {
+                          "enum": [
+                            "L1",
+                            "L2",
+                            "L3"
+                          ]
+                        },
+                        "as_of": {
+                          "type": "string",
+                          "format": "date"
+                        },
+                        "available_at": {
+                          "type": "string",
+                          "format": "date"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "dcfScenario": {
+      "type": "object",
+      "required": [
+        "wacc",
+        "terminal_growth",
+        "revenue_growth_path",
+        "ebit_margin_path",
+        "value_per_share_central",
+        "value_per_share_low",
+        "value_per_share_high",
+        "terminal_value_share",
+        "net_debt_assumption",
+        "shares_assumption"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "wacc": {
+          "type": "number",
+          "minimum": 0.05,
+          "maximum": 0.2
+        },
+        "terminal_growth": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.04
+        },
+        "revenue_growth_path": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 5,
+          "maxItems": 5
+        },
+        "ebit_margin_path": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 5,
+          "maxItems": 5
+        },
+        "value_per_share_central": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "value_per_share_low": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "value_per_share_high": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "terminal_value_share": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "net_debt_assumption": {
+          "type": "number"
+        },
+        "shares_assumption": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "priceRange": {
+      "type": "object",
+      "required": [
+        "low",
+        "high"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "low": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "high": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "nullablePriceRange": {
+      "type": "object",
+      "description": "相对估值区间；该法不可用时 low/high 均为 null（不补零）。",
+      "required": [
+        "low",
+        "high"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "low": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "high": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "valuationReading": {
+      "type": "object",
+      "description": "估值区间的读数段：价格在哪、区间有多宽、两法分歧多大。由引擎算，界面与 Markdown 只显示——此前这三件事全靠读者拿眼睛对刻度，于是「现价 32.50 已低于下沿」这种最关键的读数没人看得见。position 只回答「在区间外还是内」，不含低估/高估判断；union（两法不重叠）时位置没有经济含义，一律 unknown。",
+      "required": [
+        "price",
+        "position",
+        "width",
+        "confidence_level",
+        "summary",
+        "lines",
+        "caveat"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "price": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "读数所用的现价（与 meta.price_ref.close 同源）。"
+        },
+        "position": {
+          "type": "object",
+          "required": [
+            "code",
+            "gap_pct",
+            "zone_pct"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "enum": [
+                "below",
+                "inside",
+                "above",
+                "unknown"
+              ],
+              "description": "below/above = 现价在区间外，gap_pct 为偏离下沿/上沿的百分比；inside = 在区间内，zone_pct 为区间内的位置（0–100）；unknown = 现价缺失、区间不可用，或 union 并集位置无经济含义。"
+            },
+            "gap_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "zone_pct": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          }
+        },
+        "width": {
+          "type": "object",
+          "description": "区间宽度：方法自身的不确定度。越宽，上下沿越不该当硬边界。",
+          "required": [
+            "abs",
+            "pct"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "abs": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "pct": {
+              "type": [
+                "number",
+                "null"
+              ],
+              "description": "宽度 ÷ 区间中枢。"
+            }
+          }
+        },
+        "confidence_level": {
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "none"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "description": "一句话读数，界面置顶显示。"
+        },
+        "lines": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "逐条人话读数（价格在哪 / 区间多宽 / 两法分歧）。引擎生成，前端拼接即显示。"
+        },
+        "caveat": {
+          "type": "string",
+          "description": "边界句：读数只回答「价格落在哪」，不回答「该不该动手」，也不保证区间会实现。"
+        }
+      }
+    }
+  }
+}

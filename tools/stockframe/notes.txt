@@ -1,0 +1,3 @@
+PYTHONPATH=src 
+
+python -m stockframe.server --open
