@@ -1,0 +1,1002 @@
+{
+ "as_of": "2026-11-03",
+ "prev": "2026-10-27",
+ "market": {
+  "limit_up": 48,
+  "broken": 34,
+  "limit_down": 17,
+  "seal_rate": 0.5854,
+  "max_streak": 4,
+  "prev_limit_up": 41
+ },
+ "limit_up": [
+  {
+   "code": "000995",
+   "name": "皇台酒业",
+   "streak": 3,
+   "open_times": 0,
+   "first_time": 92500,
+   "amount": 58889688
+  },
+  {
+   "code": "002086",
+   "name": "东方海洋",
+   "streak": 4,
+   "open_times": 3,
+   "first_time": 92500,
+   "amount": 787760896
+  },
+  {
+   "code": "002827",
+   "name": "高争民爆",
+   "streak": 2,
+   "open_times": 0,
+   "first_time": 92500,
+   "amount": 28788924
+  },
+  {
+   "code": "600892",
+   "name": "大晟文化",
+   "streak": 2,
+   "open_times": 0,
+   "first_time": 92500,
+   "amount": 33969663
+  },
+  {
+   "code": "601599",
+   "name": "浙文影业",
+   "streak": 2,
+   "open_times": 0,
+   "first_time": 92500,
+   "amount": 95129464
+  },
+  {
+   "code": "603289",
+   "name": "泰瑞机器",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 92501,
+   "amount": 46715709
+  },
+  {
+   "code": "605388",
+   "name": "均瑶健康",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 92501,
+   "amount": 30527903
+  },
+  {
+   "code": "600261",
+   "name": "阳光照明",
+   "streak": 4,
+   "open_times": 5,
+   "first_time": 92502,
+   "amount": 1684795888
+  },
+  {
+   "code": "603258",
+   "name": "电魂网络",
+   "streak": 2,
+   "open_times": 1,
+   "first_time": 92502,
+   "amount": 313912144
+  },
+  {
+   "code": "605577",
+   "name": "龙版传媒",
+   "streak": 2,
+   "open_times": 0,
+   "first_time": 92502,
+   "amount": 53729390
+  },
+  {
+   "code": "002692",
+   "name": "远程股份",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 93000,
+   "amount": 37239753
+  },
+  {
+   "code": "002292",
+   "name": "奥飞娱乐",
+   "streak": 2,
+   "open_times": 1,
+   "first_time": 93009,
+   "amount": 539551216
+  },
+  {
+   "code": "002105",
+   "name": "信隆健康",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 93106,
+   "amount": 45344838
+  },
+  {
+   "code": "600358",
+   "name": "国旅联合",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 93211,
+   "amount": 107932160
+  },
+  {
+   "code": "002029",
+   "name": "七 匹 狼",
+   "streak": 2,
+   "open_times": 0,
+   "first_time": 93224,
+   "amount": 353467680
+  },
+  {
+   "code": "603381",
+   "name": "永臻股份",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 93433,
+   "amount": 94741067
+  },
+  {
+   "code": "002580",
+   "name": "圣阳股份",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 93545,
+   "amount": 724849616
+  },
+  {
+   "code": "600558",
+   "name": "大西洋",
+   "streak": 1,
+   "open_times": 2,
+   "first_time": 93728,
+   "amount": 448900752
+  },
+  {
+   "code": "002088",
+   "name": "鲁阳节能",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 93903,
+   "amount": 115433322
+  },
+  {
+   "code": "000599",
+   "name": "青岛双星",
+   "streak": 2,
+   "open_times": 0,
+   "first_time": 94333,
+   "amount": 167696951
+  },
+  {
+   "code": "603906",
+   "name": "龙蟠科技",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 94713,
+   "amount": 361506224
+  },
+  {
+   "code": "000591",
+   "name": "太阳能",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 94745,
+   "amount": 767363248
+  },
+  {
+   "code": "002058",
+   "name": "紫竹高科",
+   "streak": 2,
+   "open_times": 0,
+   "first_time": 94848,
+   "amount": 254191956
+  },
+  {
+   "code": "605378",
+   "name": "野马电池",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 94925,
+   "amount": 96000918
+  },
+  {
+   "code": "002300",
+   "name": "太阳电缆",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 95106,
+   "amount": 764927488
+  },
+  {
+   "code": "600293",
+   "name": "三峡新材",
+   "streak": 2,
+   "open_times": 1,
+   "first_time": 95424,
+   "amount": 723307936
+  },
+  {
+   "code": "002805",
+   "name": "丰元股份",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 95554,
+   "amount": 301247824
+  },
+  {
+   "code": "600327",
+   "name": "大东方",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 95728,
+   "amount": 206217890
+  },
+  {
+   "code": "600802",
+   "name": "福建水泥",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 100010,
+   "amount": 497967776
+  },
+  {
+   "code": "000679",
+   "name": "大连友谊",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 100327,
+   "amount": 130887017
+  },
+  {
+   "code": "301513",
+   "name": "尚水智能",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 100539,
+   "amount": 302895488
+  },
+  {
+   "code": "600715",
+   "name": "文投控股",
+   "streak": 2,
+   "open_times": 10,
+   "first_time": 101309,
+   "amount": 1602329456
+  },
+  {
+   "code": "002696",
+   "name": "百洋股份",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 101927,
+   "amount": 952507280
+  },
+  {
+   "code": "600241",
+   "name": "时代万恒",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 102128,
+   "amount": 409914448
+  },
+  {
+   "code": "603402",
+   "name": "陕西旅游",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 104912,
+   "amount": 155671415
+  },
+  {
+   "code": "601188",
+   "name": "龙江交通",
+   "streak": 1,
+   "open_times": 4,
+   "first_time": 110048,
+   "amount": 883914368
+  },
+  {
+   "code": "601566",
+   "name": "九牧王",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 110100,
+   "amount": 638257136
+  },
+  {
+   "code": "000151",
+   "name": "中成股份",
+   "streak": 1,
+   "open_times": 4,
+   "first_time": 111409,
+   "amount": 165985786
+  },
+  {
+   "code": "600630",
+   "name": "龙头股份",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 111744,
+   "amount": 210418071
+  },
+  {
+   "code": "001318",
+   "name": "阳光乳业",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 112503,
+   "amount": 792265824
+  },
+  {
+   "code": "002578",
+   "name": "闽发铝业",
+   "streak": 2,
+   "open_times": 1,
+   "first_time": 130003,
+   "amount": 288386608
+  },
+  {
+   "code": "600778",
+   "name": "友好集团",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 130018,
+   "amount": 93861344
+  },
+  {
+   "code": "000608",
+   "name": "阳光股份",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 130854,
+   "amount": 225557514
+  },
+  {
+   "code": "601366",
+   "name": "利群股份",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 140134,
+   "amount": 103676734
+  },
+  {
+   "code": "002992",
+   "name": "宝明科技",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 142521,
+   "amount": 173652760
+  },
+  {
+   "code": "002652",
+   "name": "扬子新材",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 143200,
+   "amount": 368545984
+  },
+  {
+   "code": "002522",
+   "name": "浙江众成",
+   "streak": 1,
+   "open_times": 2,
+   "first_time": 143639,
+   "amount": 354300352
+  },
+  {
+   "code": "601123",
+   "name": "马矿股份",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 144743,
+   "amount": 189727427
+  }
+ ],
+ "broken": [
+  {
+   "code": "001230",
+   "name": "劲旅环境",
+   "streak": null,
+   "open_times": 1,
+   "first_time": 92500,
+   "amount": 315084960
+  },
+  {
+   "code": "002949",
+   "name": "华阳国际",
+   "streak": null,
+   "open_times": 1,
+   "first_time": 92500,
+   "amount": 145327236
+  },
+  {
+   "code": "600576",
+   "name": "祥源文旅",
+   "streak": null,
+   "open_times": 1,
+   "first_time": 93011,
+   "amount": 409622256
+  },
+  {
+   "code": "002094",
+   "name": "青岛金王",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 93024,
+   "amount": 632996064
+  },
+  {
+   "code": "002425",
+   "name": "凯撒文化",
+   "streak": null,
+   "open_times": 1,
+   "first_time": 93027,
+   "amount": 457205648
+  },
+  {
+   "code": "603533",
+   "name": "掌阅科技",
+   "streak": null,
+   "open_times": 10,
+   "first_time": 93032,
+   "amount": 2582474368
+  },
+  {
+   "code": "002047",
+   "name": "宝鹰股份",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 93227,
+   "amount": 158995181
+  },
+  {
+   "code": "002172",
+   "name": "澳洋健康",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 93751,
+   "amount": 2259858000
+  },
+  {
+   "code": "002190",
+   "name": "成飞集成",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 94006,
+   "amount": 401151248
+  },
+  {
+   "code": "002343",
+   "name": "慈文传媒",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 94030,
+   "amount": 1758982960
+  },
+  {
+   "code": "002651",
+   "name": "利君股份",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 94103,
+   "amount": 287150592
+  },
+  {
+   "code": "002915",
+   "name": "中欣氟材",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 94118,
+   "amount": 359482704
+  },
+  {
+   "code": "603628",
+   "name": "清源股份",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 94928,
+   "amount": 320977568
+  },
+  {
+   "code": "301487",
+   "name": "盟固利",
+   "streak": null,
+   "open_times": 1,
+   "first_time": 95403,
+   "amount": 1645498032
+  },
+  {
+   "code": "603536",
+   "name": "惠发食品",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 95602,
+   "amount": 350847744
+  },
+  {
+   "code": "000819",
+   "name": "岳阳兴长",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 95715,
+   "amount": 460010608
+  },
+  {
+   "code": "600278",
+   "name": "东方创业",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 100319,
+   "amount": 148797309
+  },
+  {
+   "code": "002811",
+   "name": "郑中设计",
+   "streak": null,
+   "open_times": 3,
+   "first_time": 100642,
+   "amount": 748433744
+  },
+  {
+   "code": "300739",
+   "name": "明阳电路",
+   "streak": null,
+   "open_times": 1,
+   "first_time": 100748,
+   "amount": 1395369376
+  },
+  {
+   "code": "300426",
+   "name": "华智数媒",
+   "streak": null,
+   "open_times": 3,
+   "first_time": 101212,
+   "amount": 869310192
+  },
+  {
+   "code": "600259",
+   "name": "中稀有色",
+   "streak": null,
+   "open_times": 3,
+   "first_time": 102127,
+   "amount": 2012961296
+  },
+  {
+   "code": "605318",
+   "name": "法狮龙",
+   "streak": null,
+   "open_times": 1,
+   "first_time": 103151,
+   "amount": 315615392
+  },
+  {
+   "code": "002535",
+   "name": "林州重机",
+   "streak": null,
+   "open_times": 1,
+   "first_time": 103336,
+   "amount": 318942928
+  },
+  {
+   "code": "002112",
+   "name": "三变科技",
+   "streak": null,
+   "open_times": 3,
+   "first_time": 103727,
+   "amount": 475768592
+  },
+  {
+   "code": "301311",
+   "name": "昆船智能",
+   "streak": null,
+   "open_times": 5,
+   "first_time": 105130,
+   "amount": 634609872
+  },
+  {
+   "code": "001396",
+   "name": "誉帆科技",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 111200,
+   "amount": 128048000
+  },
+  {
+   "code": "001328",
+   "name": "登康口腔",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 111812,
+   "amount": 293710128
+  },
+  {
+   "code": "603567",
+   "name": "珍宝岛",
+   "streak": null,
+   "open_times": 1,
+   "first_time": 130710,
+   "amount": 211551630
+  },
+  {
+   "code": "600506",
+   "name": "统一股份",
+   "streak": null,
+   "open_times": 1,
+   "first_time": 131713,
+   "amount": 1229190816
+  },
+  {
+   "code": "002956",
+   "name": "西麦食品",
+   "streak": null,
+   "open_times": 3,
+   "first_time": 131845,
+   "amount": 338124704
+  },
+  {
+   "code": "002249",
+   "name": "大洋电机",
+   "streak": null,
+   "open_times": 1,
+   "first_time": 142845,
+   "amount": 2187803088
+  },
+  {
+   "code": "603330",
+   "name": "天洋新材",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 143055,
+   "amount": 1410610496
+  },
+  {
+   "code": "603382",
+   "name": "海阳科技",
+   "streak": null,
+   "open_times": 2,
+   "first_time": 143749,
+   "amount": 451428192
+  },
+  {
+   "code": "605058",
+   "name": "澳弘电子",
+   "streak": null,
+   "open_times": 1,
+   "first_time": 143759,
+   "amount": 1331585232
+  }
+ ],
+ "prev_limit_up": [
+  {
+   "code": "001219",
+   "name": "青岛食品",
+   "streak": 2,
+   "open_times": 1,
+   "first_time": 92500,
+   "amount": 221172383
+  },
+  {
+   "code": "000058",
+   "name": "深 赛 格",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 92500,
+   "amount": 59018704
+  },
+  {
+   "code": "603528",
+   "name": "多伦科技",
+   "streak": 4,
+   "open_times": 1,
+   "first_time": 92501,
+   "amount": 809980208
+  },
+  {
+   "code": "603028",
+   "name": "赛福天",
+   "streak": 4,
+   "open_times": 1,
+   "first_time": 92502,
+   "amount": 301969120
+  },
+  {
+   "code": "002708",
+   "name": "光洋股份",
+   "streak": 2,
+   "open_times": 0,
+   "first_time": 93003,
+   "amount": 339166160
+  },
+  {
+   "code": "002011",
+   "name": "盾安环境",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 93006,
+   "amount": 312692608
+  },
+  {
+   "code": "002284",
+   "name": "亚太股份",
+   "streak": 1,
+   "open_times": 4,
+   "first_time": 93006,
+   "amount": 477655504
+  },
+  {
+   "code": "600838",
+   "name": "上海九百",
+   "streak": 5,
+   "open_times": 0,
+   "first_time": 93026,
+   "amount": 394260960
+  },
+  {
+   "code": "002093",
+   "name": "国脉科技",
+   "streak": 2,
+   "open_times": 2,
+   "first_time": 93051,
+   "amount": 525082752
+  },
+  {
+   "code": "603565",
+   "name": "中谷物流",
+   "streak": 1,
+   "open_times": 2,
+   "first_time": 93115,
+   "amount": 392124080
+  },
+  {
+   "code": "601566",
+   "name": "九牧王",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 93127,
+   "amount": 298270608
+  },
+  {
+   "code": "600303",
+   "name": "曙光股份",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 93242,
+   "amount": 250252483
+  },
+  {
+   "code": "603758",
+   "name": "秦安股份",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 93315,
+   "amount": 133730606
+  },
+  {
+   "code": "601956",
+   "name": "东贝集团",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 93358,
+   "amount": 142014964
+  },
+  {
+   "code": "000678",
+   "name": "襄阳轴承",
+   "streak": 4,
+   "open_times": 1,
+   "first_time": 93409,
+   "amount": 1491865744
+  },
+  {
+   "code": "001400",
+   "name": "江顺科技",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 93518,
+   "amount": 148195570
+  },
+  {
+   "code": "001331",
+   "name": "胜通能源",
+   "streak": 2,
+   "open_times": 3,
+   "first_time": 93918,
+   "amount": 716457984
+  },
+  {
+   "code": "600828",
+   "name": "茂业商业",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 94042,
+   "amount": 118112558
+  },
+  {
+   "code": "600715",
+   "name": "文投控股",
+   "streak": 1,
+   "open_times": 5,
+   "first_time": 94125,
+   "amount": 468573856
+  },
+  {
+   "code": "002187",
+   "name": "广百股份",
+   "streak": 1,
+   "open_times": 2,
+   "first_time": 94330,
+   "amount": 209233886
+  },
+  {
+   "code": "603376",
+   "name": "大明电子",
+   "streak": 1,
+   "open_times": 2,
+   "first_time": 94801,
+   "amount": 91797962
+  },
+  {
+   "code": "301682",
+   "name": "宏明电子",
+   "streak": 1,
+   "open_times": 2,
+   "first_time": 95524,
+   "amount": 713663632
+  },
+  {
+   "code": "002249",
+   "name": "大洋电机",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 95657,
+   "amount": 1418988704
+  },
+  {
+   "code": "301479",
+   "name": "弘景光电",
+   "streak": 1,
+   "open_times": 9,
+   "first_time": 95706,
+   "amount": 742302800
+  },
+  {
+   "code": "300539",
+   "name": "横河精密",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 100451,
+   "amount": 473507456
+  },
+  {
+   "code": "002724",
+   "name": "海洋王",
+   "streak": 1,
+   "open_times": 6,
+   "first_time": 100742,
+   "amount": 2090114224
+  },
+  {
+   "code": "001318",
+   "name": "阳光乳业",
+   "streak": 2,
+   "open_times": 4,
+   "first_time": 101154,
+   "amount": 557219472
+  },
+  {
+   "code": "002820",
+   "name": "桂发祥",
+   "streak": 2,
+   "open_times": 0,
+   "first_time": 101154,
+   "amount": 376734480
+  },
+  {
+   "code": "605333",
+   "name": "沪光股份",
+   "streak": 2,
+   "open_times": 2,
+   "first_time": 102127,
+   "amount": 370270240
+  },
+  {
+   "code": "000888",
+   "name": "峨眉山Ａ",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 102906,
+   "amount": 514333248
+  },
+  {
+   "code": "603813",
+   "name": "原尚股份",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 103415,
+   "amount": 46672479
+  },
+  {
+   "code": "002205",
+   "name": "国统股份",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 104957,
+   "amount": 129420267
+  },
+  {
+   "code": "603370",
+   "name": "华新精科",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 105148,
+   "amount": 318696224
+  },
+  {
+   "code": "002823",
+   "name": "凯中精密",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 110533,
+   "amount": 302045952
+  },
+  {
+   "code": "300504",
+   "name": "天邑股份",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 111218,
+   "amount": 438540944
+  },
+  {
+   "code": "603037",
+   "name": "凯众股份",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 130147,
+   "amount": 250607183
+  },
+  {
+   "code": "002623",
+   "name": "亚玛顿",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 131918,
+   "amount": 232680089
+  },
+  {
+   "code": "600626",
+   "name": "申达股份",
+   "streak": 1,
+   "open_times": 5,
+   "first_time": 132430,
+   "amount": 244587830
+  },
+  {
+   "code": "301314",
+   "name": "科瑞思",
+   "streak": 2,
+   "open_times": 1,
+   "first_time": 134648,
+   "amount": 563320192
+  },
+  {
+   "code": "600785",
+   "name": "新华百货",
+   "streak": 1,
+   "open_times": 1,
+   "first_time": 145056,
+   "amount": 822736560
+  },
+  {
+   "code": "601086",
+   "name": "国芳集团",
+   "streak": 1,
+   "open_times": 0,
+   "first_time": 145206,
+   "amount": 1197142128
+  }
+ ]
+}

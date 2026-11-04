@@ -1,0 +1,140 @@
+{
+ "as_of": "2026-11-02",
+ "rows": {
+  "BK1221": {
+   "name": "数字媒体",
+   "up_ratio": 1.0,
+   "new_high_ratio": 0.0667,
+   "valid": 15,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1219": {
+   "name": "电视广播Ⅱ",
+   "up_ratio": 1.0,
+   "new_high_ratio": 0.0769,
+   "valid": 13,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1253": {
+   "name": "医疗美容",
+   "up_ratio": 0.6,
+   "new_high_ratio": 0.0,
+   "valid": 5,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK0727": {
+   "name": "医疗服务",
+   "up_ratio": 0.7778,
+   "new_high_ratio": 0.0741,
+   "valid": 54,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1046": {
+   "name": "游戏Ⅱ",
+   "up_ratio": 1.0,
+   "new_high_ratio": 0.1667,
+   "valid": 24,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK0737": {
+   "name": "软件开发",
+   "up_ratio": 0.9624,
+   "new_high_ratio": 0.0451,
+   "valid": 133,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1220": {
+   "name": "广告营销",
+   "up_ratio": 0.9667,
+   "new_high_ratio": 0.0667,
+   "valid": 30,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1251": {
+   "name": "个护用品",
+   "up_ratio": 0.6923,
+   "new_high_ratio": 0.1538,
+   "valid": 13,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1279": {
+   "name": "非白酒",
+   "up_ratio": 0.9412,
+   "new_high_ratio": 0.0,
+   "valid": 17,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1244": {
+   "name": "小家电",
+   "up_ratio": 0.8261,
+   "new_high_ratio": 0.1739,
+   "valid": 23,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1243": {
+   "name": "其他家电Ⅱ",
+   "up_ratio": 0.6667,
+   "new_high_ratio": 0.0,
+   "valid": 3,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1044": {
+   "name": "生物制品",
+   "up_ratio": 0.7759,
+   "new_high_ratio": 0.0517,
+   "valid": 58,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1032": {
+   "name": "风电设备",
+   "up_ratio": 0.871,
+   "new_high_ratio": 0.0,
+   "valid": 31,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1240": {
+   "name": "厨卫电器",
+   "up_ratio": 0.8889,
+   "new_high_ratio": 0.1111,
+   "valid": 9,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1031": {
+   "name": "光伏设备",
+   "up_ratio": 0.913,
+   "new_high_ratio": 0.0145,
+   "valid": 69,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  }
+ }
+}

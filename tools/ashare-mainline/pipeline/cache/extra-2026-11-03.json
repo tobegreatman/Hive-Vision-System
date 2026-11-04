@@ -1,0 +1,113 @@
+{
+ "as_of": "2026-11-03",
+ "rows": {
+  "BK1243": {
+   "name": "其他家电Ⅱ",
+   "up_ratio": 0.3333,
+   "new_high_ratio": 0.0,
+   "valid": 3,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1219": {
+   "name": "电视广播Ⅱ",
+   "up_ratio": 0.2308,
+   "new_high_ratio": 0.0,
+   "valid": 13,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1251": {
+   "name": "个护用品",
+   "up_ratio": 0.6154,
+   "new_high_ratio": 0.1538,
+   "valid": 13,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1253": {
+   "name": "医疗美容",
+   "up_ratio": 1.0,
+   "new_high_ratio": 0.2,
+   "valid": 5,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1279": {
+   "name": "非白酒",
+   "up_ratio": 0.6471,
+   "new_high_ratio": 0.1176,
+   "valid": 17,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK0727": {
+   "name": "医疗服务",
+   "up_ratio": 0.1296,
+   "new_high_ratio": 0.0741,
+   "valid": 54,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1244": {
+   "name": "小家电",
+   "up_ratio": 0.3043,
+   "new_high_ratio": 0.087,
+   "valid": 23,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1046": {
+   "name": "游戏Ⅱ",
+   "up_ratio": 0.625,
+   "new_high_ratio": 0.1667,
+   "valid": 24,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1281": {
+   "name": "休闲食品",
+   "up_ratio": 0.6087,
+   "new_high_ratio": 0.3043,
+   "valid": 23,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1240": {
+   "name": "厨卫电器",
+   "up_ratio": 0.6667,
+   "new_high_ratio": 0.0,
+   "valid": 9,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK1033": {
+   "name": "电池",
+   "up_ratio": 0.7407,
+   "new_high_ratio": 0.0185,
+   "valid": 108,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  },
+  "BK0448": {
+   "name": "通信设备",
+   "up_ratio": 0.1124,
+   "new_high_ratio": 0.0112,
+   "valid": 89,
+   "degraded": false,
+   "hole_count": 0,
+   "stale": []
+  }
+ }
+}

@@ -1,0 +1,73 @@
+{
+ "universe": 5577,
+ "valid": 5569,
+ "suspended": 8,
+ "up": 2107,
+ "down": 3309,
+ "flat": 153,
+ "up_ratio": 0.3783,
+ "down_ratio": 0.5942,
+ "advance_decline_ratio": 0.64,
+ "amount_yi": 17147.3,
+ "distribution": {
+  "gt9": 59,
+  "5to9": 78,
+  "2to5": 483,
+  "0to2": 1640,
+  "0to-2": 1551,
+  "-2to-5": 1121,
+  "-5to-9": 544,
+  "lt-9": 93
+ },
+ "by_board": {
+  "北交所": {
+   "valid": 354,
+   "up": 85,
+   "down": 264,
+   "flat": 5
+  },
+  "沪主板": {
+   "valid": 1699,
+   "up": 862,
+   "down": 781,
+   "flat": 56
+  },
+  "科创板": {
+   "valid": 615,
+   "up": 94,
+   "down": 519,
+   "flat": 2
+  },
+  "深主板": {
+   "valid": 1490,
+   "up": 732,
+   "down": 693,
+   "flat": 65
+  },
+  "创业板": {
+   "valid": 1410,
+   "up": 333,
+   "down": 1052,
+   "flat": 25
+  },
+  "其他": {
+   "valid": 1,
+   "up": 1,
+   "down": 0,
+   "flat": 0
+  }
+ },
+ "as_of": "2026-11-03",
+ "cross_check": {
+  "sampled": 17,
+  "matched": 17,
+  "max_price_diff_pct": 0.0,
+  "max_pct_diff_pct": 0.004,
+  "max_amount_diff_pct": 0.01
+ },
+ "source": {
+  "name": "新浪财经全A快照（node=hs_a）",
+  "reliability": "high",
+  "note": "全量 5577 只，有效（有成交）5569 只，停牌/无成交 8 只；涨跌按收盘 changepercent 严格划分"
+ }
+}

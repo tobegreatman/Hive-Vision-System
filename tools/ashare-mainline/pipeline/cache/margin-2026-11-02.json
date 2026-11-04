@@ -1,0 +1,25 @@
+{
+ "as_of": "2026-11-02",
+ "source": "eastmoney:RPTA_RZRQ_LSHJ",
+ "requests": 1,
+ "rows": 260,
+ "leverage": {
+  "as_of": "2026-10-30",
+  "lag_trading_days": 1,
+  "scope": "cn_all",
+  "balance_yi": 23431.3,
+  "fin_balance_yi": 23152.9,
+  "lend_balance_yi": 278.4,
+  "balance_to_float_pct": 0.02633,
+  "chg_1d": -0.0175,
+  "chg_5d": -0.0364,
+  "chg_20d": -0.1115,
+  "chg_60d": -0.1011,
+  "net_buy_5d_yi": -873.6,
+  "net_buy_20d_yi": -2925.5,
+  "balance_pct_250": 0.004,
+  "trend": "deleveraging",
+  "trend_label": "去杠杆",
+  "note": "东财市场汇总（RPTA_RZRQ_LSHJ），融资余额 23152.9 亿 + 融券余额 278.4 亿；口径含沪深北，与交易所沪深分市合计差约 +0.3%，不与其他源混算；滞后 1 个交易日，分位基于 250 个交易日"
+ }
+}

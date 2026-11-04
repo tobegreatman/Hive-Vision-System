@@ -1,0 +1,1218 @@
+{
+ "as_of": "2026-11-04",
+ "weights": {
+  "rs": 25,
+  "persistence": 20,
+  "volume": 20,
+  "breadth": 15,
+  "fundflow": 10,
+  "narrative": 10
+ },
+ "market": {
+  "limit_up": 118,
+  "broken": 33,
+  "limit_down": 10,
+  "seal_rate": 0.7815,
+  "max_streak": 3,
+  "prev_limit_up": 72
+ },
+ "cross_section": {
+  "boards": 128,
+  "p2_boards": 4
+ },
+ "rows": [
+  {
+   "code": "BK1046",
+   "name": "游戏Ⅱ",
+   "stage": "acceleration",
+   "gates": 2,
+   "listed": true,
+   "rs": 1.2129,
+   "crowding": 0.8936,
+   "norm": {
+    "rs": 99.22,
+    "persistence": 89.06,
+    "volume": 84.22,
+    "breadth": 78.34,
+    "fundflow": 93.75,
+    "narrative": 90.0
+   },
+   "contrib": {
+    "rs": 24.8,
+    "persistence": 17.81,
+    "volume": 16.84,
+    "breadth": 11.75,
+    "fundflow": 9.38,
+    "narrative": 9.0
+   },
+   "penalty": 0,
+   "penalty_rules": [],
+   "score": 89.58,
+   "pool": {
+    "limit_up_count": 1,
+    "limit_up_names": [
+     "大晟文化"
+    ],
+    "max_streak": 3,
+    "max_streak_prev": 2,
+    "open_count": 0,
+    "broken_count": 1,
+    "seal_rate": 1.0,
+    "leader_chg_5d": 0.0776
+   },
+   "crit": {
+    "fade": [
+     [
+      "份额 Δ20 < −0.5pct",
+      false,
+      "+0.60pct"
+     ],
+     [
+      "龙头 5 日跌幅 > 8%",
+      false,
+      "+7.76%"
+     ],
+     [
+      "上涨占比 < 45%",
+      false,
+      "87.5%"
+     ]
+    ],
+    "divergence": [
+     [
+      "5 日涨幅 < 20 日涨幅/4",
+      false,
+      "+5.19% vs +2.63%"
+     ],
+     [
+      "份额分位 > 0.90",
+      false,
+      "0.7949"
+     ],
+     [
+      "连板回落 ≥ 2 级",
+      false,
+      "5 个交易日前 2 级 → 当日 3 级"
+     ]
+    ],
+    "acceleration": [
+     [
+      "20 日涨幅 > 25%",
+      false,
+      "+10.52%"
+     ],
+     [
+      "拥挤度 > 0.85",
+      true,
+      "0.8936"
+     ],
+     [
+      "封板率 > 75%",
+      true,
+      "1.0"
+     ]
+    ],
+    "expansion": [
+     [
+      "份额分位 0.60~0.85",
+      true,
+      "0.7949"
+     ],
+     [
+      "涨停 ≥ 5 家",
+      false,
+      "1 家"
+     ],
+     [
+      "连板 3~4 级",
+      true,
+      "3 级"
+     ],
+     [
+      "上涨占比 ≥ 60%",
+      true,
+      "87.5%"
+     ]
+    ],
+    "ignition": [
+     [
+      "份额 Δ5 ≥ +0.5pct",
+      false,
+      "+0.26pct"
+     ],
+     [
+      "前 10 天数 ≤ 8",
+      true,
+      "6 天"
+     ],
+     [
+      "涨停 2~5 家",
+      false,
+      "1 家"
+     ]
+    ]
+   }
+  },
+  {
+   "code": "BK1218",
+   "name": "出版",
+   "stage": "expansion",
+   "gates": 2,
+   "listed": true,
+   "rs": 1.1757,
+   "crowding": 0.9379,
+   "norm": {
+    "rs": 96.88,
+    "persistence": 96.09,
+    "volume": 46.56,
+    "breadth": 71.67,
+    "fundflow": 63.28,
+    "narrative": 90.0
+   },
+   "contrib": {
+    "rs": 24.22,
+    "persistence": 19.22,
+    "volume": 9.31,
+    "breadth": 10.75,
+    "fundflow": 6.33,
+    "narrative": 9.0
+   },
+   "penalty": 6,
+   "penalty_rules": [
+    "R2"
+   ],
+   "score": 72.83,
+   "pool": {
+    "limit_up_count": 2,
+    "limit_up_names": [
+     "中信出版",
+     "龙版传媒"
+    ],
+    "max_streak": 3,
+    "max_streak_prev": 0,
+    "open_count": 2,
+    "broken_count": 0,
+    "seal_rate": 0.0,
+    "leader_chg_5d": -0.181
+   },
+   "crit": {
+    "fade": [
+     [
+      "份额 Δ20 < −0.5pct",
+      false,
+      "+0.14pct"
+     ],
+     [
+      "龙头 5 日跌幅 > 8%",
+      true,
+      "-18.10%"
+     ],
+     [
+      "上涨占比 < 45%",
+      false,
+      "78.6%"
+     ]
+    ],
+    "divergence": [
+     [
+      "5 日涨幅 < 20 日涨幅/4",
+      false,
+      "+2.88% vs +1.78%"
+     ],
+     [
+      "份额分位 > 0.90",
+      true,
+      "0.907"
+     ],
+     [
+      "连板回落 ≥ 2 级",
+      false,
+      "5 个交易日前 0 级 → 当日 3 级"
+     ]
+    ],
+    "acceleration": [
+     [
+      "20 日涨幅 > 25%",
+      false,
+      "+7.13%"
+     ],
+     [
+      "拥挤度 > 0.85",
+      true,
+      "0.9379"
+     ],
+     [
+      "封板率 > 75%",
+      false,
+      "0.0"
+     ]
+    ],
+    "expansion": [
+     [
+      "份额分位 0.60~0.85",
+      false,
+      "0.907"
+     ],
+     [
+      "涨停 ≥ 5 家",
+      false,
+      "2 家"
+     ],
+     [
+      "连板 3~4 级",
+      true,
+      "3 级"
+     ],
+     [
+      "上涨占比 ≥ 60%",
+      true,
+      "78.6%"
+     ]
+    ],
+    "ignition": [
+     [
+      "份额 Δ5 ≥ +0.5pct",
+      false,
+      "-0.07pct"
+     ],
+     [
+      "前 10 天数 ≤ 8",
+      false,
+      "20 天"
+     ],
+     [
+      "涨停 2~5 家",
+      true,
+      "2 家"
+     ]
+    ]
+   }
+  },
+  {
+   "code": "BK1221",
+   "name": "数字媒体",
+   "stage": null,
+   "gates": 2,
+   "listed": false,
+   "rs": 1.1856,
+   "crowding": 0.9359,
+   "norm": {
+    "rs": 97.66,
+    "persistence": 83.07,
+    "volume": 57.18,
+    "breadth": 66.11,
+    "fundflow": 61.72,
+    "narrative": 0.0
+   },
+   "contrib": {
+    "rs": 24.41,
+    "persistence": 16.61,
+    "volume": 11.44,
+    "breadth": 9.92,
+    "fundflow": 6.17,
+    "narrative": 0.0
+   },
+   "penalty": 0,
+   "penalty_rules": [],
+   "score": 68.55,
+   "pool": {
+    "limit_up_count": 0,
+    "limit_up_names": [],
+    "max_streak": 0,
+    "max_streak_prev": 1,
+    "open_count": 0,
+    "broken_count": 0,
+    "seal_rate": null,
+    "leader_chg_5d": 0.2136
+   },
+   "crit": {
+    "fade": [
+     [
+      "份额 Δ20 < −0.5pct",
+      false,
+      "+0.28pct"
+     ],
+     [
+      "龙头 5 日跌幅 > 8%",
+      false,
+      "+21.36%"
+     ],
+     [
+      "上涨占比 < 45%",
+      false,
+      "100.0%"
+     ]
+    ],
+    "divergence": [
+     [
+      "5 日涨幅 < 20 日涨幅/4",
+      true,
+      "-0.38% vs +2.01%"
+     ],
+     [
+      "份额分位 > 0.90",
+      false,
+      "0.8953"
+     ],
+     [
+      "连板回落 ≥ 2 级",
+      false,
+      "5 个交易日前 1 级 → 当日 0 级"
+     ]
+    ],
+    "acceleration": [
+     [
+      "20 日涨幅 > 25%",
+      false,
+      "+8.03%"
+     ],
+     [
+      "拥挤度 > 0.85",
+      true,
+      "0.9359"
+     ],
+     [
+      "封板率 > 75%",
+      false,
+      "无涨停"
+     ]
+    ],
+    "expansion": [
+     [
+      "份额分位 0.60~0.85",
+      false,
+      "0.8953"
+     ],
+     [
+      "涨停 ≥ 5 家",
+      false,
+      "0 家"
+     ],
+     [
+      "连板 3~4 级",
+      false,
+      "0 级"
+     ],
+     [
+      "上涨占比 ≥ 60%",
+      true,
+      "100.0%"
+     ]
+    ],
+    "ignition": [
+     [
+      "份额 Δ5 ≥ +0.5pct",
+      false,
+      "-0.02pct"
+     ],
+     [
+      "前 10 天数 ≤ 8",
+      false,
+      "16 天"
+     ],
+     [
+      "涨停 2~5 家",
+      false,
+      "0 家"
+     ]
+    ]
+   }
+  },
+  {
+   "code": "BK1222",
+   "name": "影视院线",
+   "stage": null,
+   "gates": 2,
+   "listed": false,
+   "rs": 1.2205,
+   "crowding": 0.9651,
+   "norm": {
+    "rs": 100.0,
+    "persistence": 85.16,
+    "volume": 63.75,
+    "breadth": 65.0,
+    "fundflow": 73.44,
+    "narrative": 0.0
+   },
+   "contrib": {
+    "rs": 25.0,
+    "persistence": 17.03,
+    "volume": 12.75,
+    "breadth": 9.75,
+    "fundflow": 7.34,
+    "narrative": 0.0
+   },
+   "penalty": 6,
+   "penalty_rules": [
+    "R2"
+   ],
+   "score": 65.87,
+   "pool": {
+    "limit_up_count": 0,
+    "limit_up_names": [],
+    "max_streak": 0,
+    "max_streak_prev": 1,
+    "open_count": 0,
+    "broken_count": 1,
+    "seal_rate": null,
+    "leader_chg_5d": 0.0323
+   },
+   "crit": {
+    "fade": [
+     [
+      "份额 Δ20 < −0.5pct",
+      false,
+      "+0.20pct"
+     ],
+     [
+      "龙头 5 日跌幅 > 8%",
+      false,
+      "+3.23%"
+     ],
+     [
+      "上涨占比 < 45%",
+      false,
+      "88.9%"
+     ]
+    ],
+    "divergence": [
+     [
+      "5 日涨幅 < 20 日涨幅/4",
+      false,
+      "+4.90% vs +2.80%"
+     ],
+     [
+      "份额分位 > 0.90",
+      true,
+      "0.9302"
+     ],
+     [
+      "连板回落 ≥ 2 级",
+      false,
+      "5 个交易日前 1 级 → 当日 0 级"
+     ]
+    ],
+    "acceleration": [
+     [
+      "20 日涨幅 > 25%",
+      false,
+      "+11.21%"
+     ],
+     [
+      "拥挤度 > 0.85",
+      true,
+      "0.9651"
+     ],
+     [
+      "封板率 > 75%",
+      false,
+      "无涨停"
+     ]
+    ],
+    "expansion": [
+     [
+      "份额分位 0.60~0.85",
+      false,
+      "0.9302"
+     ],
+     [
+      "涨停 ≥ 5 家",
+      false,
+      "0 家"
+     ],
+     [
+      "连板 3~4 级",
+      false,
+      "0 级"
+     ],
+     [
+      "上涨占比 ≥ 60%",
+      true,
+      "88.9%"
+     ]
+    ],
+    "ignition": [
+     [
+      "份额 Δ5 ≥ +0.5pct",
+      false,
+      "+0.01pct"
+     ],
+     [
+      "前 10 天数 ≤ 8",
+      false,
+      "19 天"
+     ],
+     [
+      "涨停 2~5 家",
+      false,
+      "0 家"
+     ]
+    ]
+   }
+  },
+  {
+   "code": "BK1277",
+   "name": "白酒Ⅱ",
+   "stage": null,
+   "gates": 1,
+   "listed": false,
+   "rs": 1.197,
+   "crowding": 0.9806,
+   "norm": {
+    "rs": 98.44,
+    "persistence": 77.6,
+    "volume": 85.16,
+    "breadth": 15.0,
+    "fundflow": 92.97,
+    "narrative": 0.0
+   },
+   "contrib": {
+    "rs": 24.61,
+    "persistence": 15.52,
+    "volume": 17.03,
+    "breadth": 2.25,
+    "fundflow": 9.3,
+    "narrative": 0.0
+   },
+   "penalty": 6,
+   "penalty_rules": [
+    "R2"
+   ],
+   "score": 62.71,
+   "pool": {
+    "limit_up_count": 0,
+    "limit_up_names": [],
+    "max_streak": 0,
+    "max_streak_prev": 0,
+    "open_count": 0,
+    "broken_count": 1,
+    "seal_rate": null,
+    "leader_chg_5d": 0.0869
+   },
+   "crit": {
+    "fade": [
+     [
+      "份额 Δ20 < −0.5pct",
+      false,
+      "+0.38pct"
+     ],
+     [
+      "龙头 5 日跌幅 > 8%",
+      false,
+      "+8.69%"
+     ],
+     [
+      "上涨占比 < 45%",
+      true,
+      "10.5%"
+     ]
+    ],
+    "divergence": [
+     [
+      "5 日涨幅 < 20 日涨幅/4",
+      false,
+      "+9.85% vs +2.27%"
+     ],
+     [
+      "份额分位 > 0.90",
+      true,
+      "0.9767"
+     ],
+     [
+      "连板回落 ≥ 2 级",
+      false,
+      "5 个交易日前 0 级 → 当日 0 级"
+     ]
+    ],
+    "acceleration": [
+     [
+      "20 日涨幅 > 25%",
+      false,
+      "+9.07%"
+     ],
+     [
+      "拥挤度 > 0.85",
+      true,
+      "0.9806"
+     ],
+     [
+      "封板率 > 75%",
+      false,
+      "无涨停"
+     ]
+    ],
+    "expansion": [
+     [
+      "份额分位 0.60~0.85",
+      false,
+      "0.9767"
+     ],
+     [
+      "涨停 ≥ 5 家",
+      false,
+      "0 家"
+     ],
+     [
+      "连板 3~4 级",
+      false,
+      "0 级"
+     ],
+     [
+      "上涨占比 ≥ 60%",
+      false,
+      "10.5%"
+     ]
+    ],
+    "ignition": [
+     [
+      "份额 Δ5 ≥ +0.5pct",
+      false,
+      "+0.19pct"
+     ],
+     [
+      "前 10 天数 ≤ 8",
+      false,
+      "9 天"
+     ],
+     [
+      "涨停 2~5 家",
+      false,
+      "0 家"
+     ]
+    ]
+   }
+  },
+  {
+   "code": "BK0421",
+   "name": "铁路公路",
+   "stage": null,
+   "gates": 1,
+   "listed": false,
+   "rs": 1.1052,
+   "crowding": 0.8406,
+   "norm": {
+    "rs": 93.75,
+    "persistence": 95.31,
+    "volume": 57.03,
+    "breadth": 36.11,
+    "fundflow": 28.91,
+    "narrative": 0.0
+   },
+   "contrib": {
+    "rs": 23.44,
+    "persistence": 19.06,
+    "volume": 11.41,
+    "breadth": 5.42,
+    "fundflow": 2.89,
+    "narrative": 0.0
+   },
+   "penalty": 0,
+   "penalty_rules": [],
+   "score": 62.22,
+   "pool": {
+    "limit_up_count": 0,
+    "limit_up_names": [],
+    "max_streak": 0,
+    "max_streak_prev": 0,
+    "open_count": 0,
+    "broken_count": 0,
+    "seal_rate": null,
+    "leader_chg_5d": 0.0331
+   },
+   "crit": {
+    "fade": [
+     [
+      "份额 Δ20 < −0.5pct",
+      false,
+      "+0.07pct"
+     ],
+     [
+      "龙头 5 日跌幅 > 8%",
+      false,
+      "+3.31%"
+     ],
+     [
+      "上涨占比 < 45%",
+      false,
+      "51.5%"
+     ]
+    ],
+    "divergence": [
+     [
+      "5 日涨幅 < 20 日涨幅/4",
+      false,
+      "+1.27% vs +0.18%"
+     ],
+     [
+      "份额分位 > 0.90",
+      false,
+      "0.7436"
+     ],
+     [
+      "连板回落 ≥ 2 级",
+      false,
+      "5 个交易日前 0 级 → 当日 0 级"
+     ]
+    ],
+    "acceleration": [
+     [
+      "20 日涨幅 > 25%",
+      false,
+      "+0.71%"
+     ],
+     [
+      "拥挤度 > 0.85",
+      false,
+      "0.8406"
+     ],
+     [
+      "封板率 > 75%",
+      false,
+      "无涨停"
+     ]
+    ],
+    "expansion": [
+     [
+      "份额分位 0.60~0.85",
+      true,
+      "0.7436"
+     ],
+     [
+      "涨停 ≥ 5 家",
+      false,
+      "0 家"
+     ],
+     [
+      "连板 3~4 级",
+      false,
+      "0 级"
+     ],
+     [
+      "上涨占比 ≥ 60%",
+      false,
+      "51.5%"
+     ]
+    ],
+    "ignition": [
+     [
+      "份额 Δ5 ≥ +0.5pct",
+      false,
+      "+0.03pct"
+     ],
+     [
+      "前 10 天数 ≤ 8",
+      false,
+      "9 天"
+     ],
+     [
+      "涨停 2~5 家",
+      false,
+      "0 家"
+     ]
+    ]
+   }
+  },
+  {
+   "code": "BK1281",
+   "name": "休闲食品",
+   "stage": null,
+   "gates": 1,
+   "listed": false,
+   "rs": 1.1362,
+   "crowding": 0.9747,
+   "norm": {
+    "rs": 96.09,
+    "persistence": 76.56,
+    "volume": 62.03,
+    "breadth": 45.0,
+    "fundflow": 87.5,
+    "narrative": 0.0
+   },
+   "contrib": {
+    "rs": 24.02,
+    "persistence": 15.31,
+    "volume": 12.41,
+    "breadth": 6.75,
+    "fundflow": 8.75,
+    "narrative": 0.0
+   },
+   "penalty": 6,
+   "penalty_rules": [
+    "R2"
+   ],
+   "score": 61.24,
+   "pool": {
+    "limit_up_count": 1,
+    "limit_up_names": [
+     "来伊份"
+    ],
+    "max_streak": 1,
+    "max_streak_prev": 3,
+    "open_count": 1,
+    "broken_count": 0,
+    "seal_rate": 0.0,
+    "leader_chg_5d": -0.0413
+   },
+   "crit": {
+    "fade": [
+     [
+      "份额 Δ20 < −0.5pct",
+      false,
+      "+0.17pct"
+     ],
+     [
+      "龙头 5 日跌幅 > 8%",
+      false,
+      "-4.13%"
+     ],
+     [
+      "上涨占比 < 45%",
+      true,
+      "21.7%"
+     ]
+    ],
+    "divergence": [
+     [
+      "5 日涨幅 < 20 日涨幅/4",
+      false,
+      "+4.20% vs +0.88%"
+     ],
+     [
+      "份额分位 > 0.90",
+      true,
+      "0.9884"
+     ],
+     [
+      "连板回落 ≥ 2 级",
+      true,
+      "5 个交易日前 3 级 → 当日 1 级"
+     ]
+    ],
+    "acceleration": [
+     [
+      "20 日涨幅 > 25%",
+      false,
+      "+3.53%"
+     ],
+     [
+      "拥挤度 > 0.85",
+      true,
+      "0.9747"
+     ],
+     [
+      "封板率 > 75%",
+      false,
+      "0.0"
+     ]
+    ],
+    "expansion": [
+     [
+      "份额分位 0.60~0.85",
+      false,
+      "0.9884"
+     ],
+     [
+      "涨停 ≥ 5 家",
+      false,
+      "1 家"
+     ],
+     [
+      "连板 3~4 级",
+      false,
+      "1 级"
+     ],
+     [
+      "上涨占比 ≥ 60%",
+      false,
+      "21.7%"
+     ]
+    ],
+    "ignition": [
+     [
+      "份额 Δ5 ≥ +0.5pct",
+      false,
+      "+0.10pct"
+     ],
+     [
+      "前 10 天数 ≤ 8",
+      true,
+      "6 天"
+     ],
+     [
+      "涨停 2~5 家",
+      false,
+      "1 家"
+     ]
+    ]
+   }
+  },
+  {
+   "code": "BK0475",
+   "name": "银行Ⅱ",
+   "stage": null,
+   "gates": 1,
+   "listed": false,
+   "rs": 1.1206,
+   "crowding": 0.8868,
+   "norm": {
+    "rs": 95.31,
+    "persistence": 69.79,
+    "volume": 79.22,
+    "breadth": 27.77,
+    "fundflow": 22.66,
+    "narrative": 0.0
+   },
+   "contrib": {
+    "rs": 23.83,
+    "persistence": 13.96,
+    "volume": 15.84,
+    "breadth": 4.17,
+    "fundflow": 2.27,
+    "narrative": 0.0
+   },
+   "penalty": 0,
+   "penalty_rules": [],
+   "score": 60.07,
+   "pool": {
+    "limit_up_count": 0,
+    "limit_up_names": [],
+    "max_streak": 0,
+    "max_streak_prev": 0,
+    "open_count": 0,
+    "broken_count": 0,
+    "seal_rate": null,
+    "leader_chg_5d": 0.0097
+   },
+   "crit": {
+    "fade": [
+     [
+      "份额 Δ20 < −0.5pct",
+      false,
+      "+0.30pct"
+     ],
+     [
+      "龙头 5 日跌幅 > 8%",
+      false,
+      "+0.97%"
+     ],
+     [
+      "上涨占比 < 45%",
+      true,
+      "35.7%"
+     ]
+    ],
+    "divergence": [
+     [
+      "5 日涨幅 < 20 日涨幅/4",
+      false,
+      "+1.27% vs +0.53%"
+     ],
+     [
+      "份额分位 > 0.90",
+      false,
+      "0.8205"
+     ],
+     [
+      "连板回落 ≥ 2 级",
+      false,
+      "5 个交易日前 0 级 → 当日 0 级"
+     ]
+    ],
+    "acceleration": [
+     [
+      "20 日涨幅 > 25%",
+      false,
+      "+2.11%"
+     ],
+     [
+      "拥挤度 > 0.85",
+      true,
+      "0.8868"
+     ],
+     [
+      "封板率 > 75%",
+      false,
+      "无涨停"
+     ]
+    ],
+    "expansion": [
+     [
+      "份额分位 0.60~0.85",
+      true,
+      "0.8205"
+     ],
+     [
+      "涨停 ≥ 5 家",
+      false,
+      "0 家"
+     ],
+     [
+      "连板 3~4 级",
+      false,
+      "0 级"
+     ],
+     [
+      "上涨占比 ≥ 60%",
+      false,
+      "35.7%"
+     ]
+    ],
+    "ignition": [
+     [
+      "份额 Δ5 ≥ +0.5pct",
+      false,
+      "+0.02pct"
+     ],
+     [
+      "前 10 天数 ≤ 8",
+      false,
+      "9 天"
+     ],
+     [
+      "涨停 2~5 家",
+      false,
+      "0 家"
+     ]
+    ]
+   }
+  },
+  {
+   "code": "BK0459",
+   "name": "元件",
+   "stage": null,
+   "gates": 1,
+   "listed": false,
+   "rs": 0.84,
+   "crowding": 0.372,
+   "norm": {
+    "rs": 0.78,
+    "persistence": 53.91,
+    "volume": 99.06,
+    "breadth": 64.44,
+    "fundflow": 26.56,
+    "narrative": 0.0
+   },
+   "contrib": {
+    "rs": 0.2,
+    "persistence": 10.78,
+    "volume": 19.81,
+    "breadth": 9.67,
+    "fundflow": 2.66,
+    "narrative": 0.0
+   },
+   "penalty": 0,
+   "penalty_rules": [],
+   "score": 43.12,
+   "pool": {
+    "limit_up_count": 7,
+    "limit_up_names": [
+     "广合科技",
+     "兴森科技",
+     "沪电股份",
+     "金安国纪",
+     "深南电路",
+     "海星股份",
+     "华正新材"
+    ],
+    "max_streak": 1,
+    "max_streak_prev": 1,
+    "open_count": 3,
+    "broken_count": 2,
+    "seal_rate": 0.5714,
+    "leader_chg_5d": -0.0982
+   },
+   "crit": {
+    "fade": [
+     [
+      "份额 Δ20 < −0.5pct",
+      false,
+      "+0.22pct"
+     ],
+     [
+      "龙头 5 日跌幅 > 8%",
+      true,
+      "-9.82%"
+     ],
+     [
+      "上涨占比 < 45%",
+      false,
+      "98.5%"
+     ]
+    ],
+    "divergence": [
+     [
+      "5 日涨幅 < 20 日涨幅/4",
+      true,
+      "-6.80% vs -5.86%"
+     ],
+     [
+      "份额分位 > 0.90",
+      false,
+      "0.7363"
+     ],
+     [
+      "连板回落 ≥ 2 级",
+      false,
+      "5 个交易日前 1 级 → 当日 1 级"
+     ]
+    ],
+    "acceleration": [
+     [
+      "20 日涨幅 > 25%",
+      false,
+      "-23.46%"
+     ],
+     [
+      "拥挤度 > 0.85",
+      false,
+      "0.3720"
+     ],
+     [
+      "封板率 > 75%",
+      false,
+      "0.5714"
+     ]
+    ],
+    "expansion": [
+     [
+      "份额分位 0.60~0.85",
+      true,
+      "0.7363"
+     ],
+     [
+      "涨停 ≥ 5 家",
+      true,
+      "7 家"
+     ],
+     [
+      "连板 3~4 级",
+      false,
+      "1 级"
+     ],
+     [
+      "上涨占比 ≥ 60%",
+      true,
+      "98.5%"
+     ]
+    ],
+    "ignition": [
+     [
+      "份额 Δ5 ≥ +0.5pct",
+      true,
+      "+0.65pct"
+     ],
+     [
+      "前 10 天数 ≤ 8",
+      true,
+      "1 天"
+     ],
+     [
+      "涨停 2~5 家",
+      false,
+      "7 家"
+     ]
+    ]
+   }
+  }
+ ]
+}

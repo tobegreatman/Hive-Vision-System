@@ -1,0 +1,405 @@
+{
+ "as_of": "2026-11-02",
+ "since": "2025-09-15",
+ "span": 170,
+ "panel_pkl": {
+  "mtime": 1793614471.9627645,
+  "bytes": 1982611,
+  "boards": 128
+ },
+ "boards_live": 128,
+ "boards_stale": [],
+ "market_amount_yi": 17951.88,
+ "gates": [
+  {
+   "code": "BK1277",
+   "name": "白酒Ⅱ",
+   "p1": true,
+   "p2": true,
+   "p3": true,
+   "gates": 3,
+   "p2_degraded": false,
+   "p2_holes": 0,
+   "days_top10_20": 7,
+   "consecutive_top10": 3,
+   "turnover_share_chg_5": 0.00808,
+   "turnover_share_pct_250": 1.0,
+   "breadth_up_ratio": 0.9474,
+   "new_high_ratio": 0.5789,
+   "valid": 19
+  },
+  {
+   "code": "BK0475",
+   "name": "银行Ⅱ",
+   "p1": true,
+   "p2": false,
+   "p3": true,
+   "gates": 2,
+   "p2_degraded": false,
+   "p2_holes": 0,
+   "days_top10_20": 7,
+   "consecutive_top10": 5,
+   "turnover_share_chg_5": 0.006183,
+   "turnover_share_pct_250": 0.9779,
+   "breadth_up_ratio": 0.2143,
+   "new_high_ratio": 0.2143,
+   "valid": 42
+  },
+  {
+   "code": "BK1222",
+   "name": "影视院线",
+   "p1": true,
+   "p2": true,
+   "p3": false,
+   "gates": 2,
+   "p2_degraded": false,
+   "p2_holes": 0,
+   "days_top10_20": 17,
+   "consecutive_top10": 17,
+   "turnover_share_chg_5": 0.001967,
+   "turnover_share_pct_250": 0.9647,
+   "breadth_up_ratio": 0.9444,
+   "new_high_ratio": 0.2778,
+   "valid": 18
+  },
+  {
+   "code": "BK1218",
+   "name": "出版",
+   "p1": true,
+   "p2": true,
+   "p3": false,
+   "gates": 2,
+   "p2_degraded": false,
+   "p2_holes": 0,
+   "days_top10_20": 20,
+   "consecutive_top10": 20,
+   "turnover_share_chg_5": 0.000232,
+   "turnover_share_pct_250": 0.9529,
+   "breadth_up_ratio": 0.9286,
+   "new_high_ratio": 0.25,
+   "valid": 28
+  },
+  {
+   "code": "BK0421",
+   "name": "铁路公路",
+   "p1": true,
+   "p2": true,
+   "p3": false,
+   "gates": 2,
+   "p2_degraded": false,
+   "p2_holes": 0,
+   "days_top10_20": 7,
+   "consecutive_top10": 5,
+   "turnover_share_chg_5": 0.000463,
+   "turnover_share_pct_250": 0.7823,
+   "breadth_up_ratio": 0.7273,
+   "new_high_ratio": 0.0909,
+   "valid": 33
+  },
+  {
+   "code": "BK0473",
+   "name": "证券Ⅱ",
+   "p1": false,
+   "p2": true,
+   "p3": true,
+   "gates": 2,
+   "p2_degraded": false,
+   "p2_holes": 0,
+   "days_top10_20": 0,
+   "consecutive_top10": 0,
+   "turnover_share_chg_5": 0.010946,
+   "turnover_share_pct_250": 0.8118,
+   "breadth_up_ratio": 1.0,
+   "new_high_ratio": 0.0833,
+   "valid": 48
+  }
+ ],
+ "passes": [
+  {
+   "code": "BK1277",
+   "name": "白酒Ⅱ",
+   "p1": true,
+   "p2": true,
+   "p3": true,
+   "gates": 3,
+   "p2_degraded": false,
+   "p2_holes": 0,
+   "days_top10_20": 7,
+   "consecutive_top10": 3,
+   "turnover_share_chg_5": 0.00808,
+   "turnover_share_pct_250": 1.0,
+   "breadth_up_ratio": 0.9474,
+   "new_high_ratio": 0.5789,
+   "valid": 19
+  },
+  {
+   "code": "BK0475",
+   "name": "银行Ⅱ",
+   "p1": true,
+   "p2": false,
+   "p3": true,
+   "gates": 2,
+   "p2_degraded": false,
+   "p2_holes": 0,
+   "days_top10_20": 7,
+   "consecutive_top10": 5,
+   "turnover_share_chg_5": 0.006183,
+   "turnover_share_pct_250": 0.9779,
+   "breadth_up_ratio": 0.2143,
+   "new_high_ratio": 0.2143,
+   "valid": 42
+  },
+  {
+   "code": "BK1222",
+   "name": "影视院线",
+   "p1": true,
+   "p2": true,
+   "p3": false,
+   "gates": 2,
+   "p2_degraded": false,
+   "p2_holes": 0,
+   "days_top10_20": 17,
+   "consecutive_top10": 17,
+   "turnover_share_chg_5": 0.001967,
+   "turnover_share_pct_250": 0.9647,
+   "breadth_up_ratio": 0.9444,
+   "new_high_ratio": 0.2778,
+   "valid": 18
+  },
+  {
+   "code": "BK1218",
+   "name": "出版",
+   "p1": true,
+   "p2": true,
+   "p3": false,
+   "gates": 2,
+   "p2_degraded": false,
+   "p2_holes": 0,
+   "days_top10_20": 20,
+   "consecutive_top10": 20,
+   "turnover_share_chg_5": 0.000232,
+   "turnover_share_pct_250": 0.9529,
+   "breadth_up_ratio": 0.9286,
+   "new_high_ratio": 0.25,
+   "valid": 28
+  },
+  {
+   "code": "BK0421",
+   "name": "铁路公路",
+   "p1": true,
+   "p2": true,
+   "p3": false,
+   "gates": 2,
+   "p2_degraded": false,
+   "p2_holes": 0,
+   "days_top10_20": 7,
+   "consecutive_top10": 5,
+   "turnover_share_chg_5": 0.000463,
+   "turnover_share_pct_250": 0.7823,
+   "breadth_up_ratio": 0.7273,
+   "new_high_ratio": 0.0909,
+   "valid": 33
+  },
+  {
+   "code": "BK0473",
+   "name": "证券Ⅱ",
+   "p1": false,
+   "p2": true,
+   "p3": true,
+   "gates": 2,
+   "p2_degraded": false,
+   "p2_holes": 0,
+   "days_top10_20": 0,
+   "consecutive_top10": 0,
+   "turnover_share_chg_5": 0.010946,
+   "turnover_share_pct_250": 0.8118,
+   "breadth_up_ratio": 1.0,
+   "new_high_ratio": 0.0833,
+   "valid": 48
+  }
+ ],
+ "p2_degraded": [],
+ "kline_calendar": {
+  "days": 271,
+  "first": "2025-09-15",
+  "last": "2026-11-02"
+ },
+ "kline_append": {
+  "written": 0,
+  "trade_date": "2026-11-02",
+  "provisional": false,
+  "ts": "20261102161430",
+  "skipped": "全部跳过（已有当日或数据异常）",
+  "skipped_codes": [
+   "000568",
+   "000596",
+   "000799",
+   "000858",
+   "000860",
+   "000995",
+   "002304",
+   "002646"
+  ],
+  "exdiv": []
+ },
+ "timing": [
+  {
+   "stage": "契约校验",
+   "seconds": 1.07,
+   "note": "可降级 1 项"
+  },
+  {
+   "stage": "板块面板",
+   "seconds": 36.83,
+   "note": "128 个现役板块 / 170 日"
+  },
+  {
+   "stage": "P1/P3 穷举",
+   "seconds": 0.24,
+   "note": "128 个板块"
+  },
+  {
+   "stage": "成分股",
+   "seconds": 1.59,
+   "note": "192 只"
+  },
+  {
+   "stage": "批量报价",
+   "seconds": 1.45,
+   "note": "4 次请求"
+  },
+  {
+   "stage": "K 线库",
+   "seconds": 4.56,
+   "note": "kline，请求 4 次"
+  },
+  {
+   "stage": "P2 广度",
+   "seconds": 0.01,
+   "note": "6 个板块"
+  }
+ ],
+ "total_seconds": 45.76,
+ "requests": {
+  "ok": 146,
+  "retry": 0,
+  "failed": 5,
+  "blocked": 5,
+  "cache_hit": 0,
+  "bytes": 11492942,
+  "seconds": 12.99
+ },
+ "fetch_policy": {
+  "workers": 4,
+  "max_rps": 4.0,
+  "min_span_seconds": 40.0,
+  "jitter_seconds": [
+   0.02,
+   0.18
+  ],
+  "timeout_seconds": 20.0,
+  "retries": 2,
+  "adaptive": true,
+  "cache_ttl_seconds": 0.0,
+  "host_rps": {
+   "datacenter-web.eastmoney.com": 3.5,
+   "qt.gtimg.cn": 3.0,
+   "web.ifzq.gtimg.cn": 2.5,
+   "push2his.eastmoney.com": 2.0,
+   "push2ex.eastmoney.com": 2.0,
+   "money.finance.sina.com.cn": 2.0
+  }
+ },
+ "fetch_audit": {
+  "policy": {
+   "workers": 4,
+   "max_rps": 4.0,
+   "min_span_seconds": 40.0,
+   "jitter_seconds": [
+    0.02,
+    0.18
+   ],
+   "timeout_seconds": 20.0,
+   "retries": 2,
+   "adaptive": true,
+   "cache_ttl_seconds": 0.0,
+   "host_rps": {
+    "datacenter-web.eastmoney.com": 3.5,
+    "qt.gtimg.cn": 3.0,
+    "web.ifzq.gtimg.cn": 2.5,
+    "push2his.eastmoney.com": 2.0,
+    "push2ex.eastmoney.com": 2.0,
+    "money.finance.sina.com.cn": 2.0
+   }
+  },
+  "span_seconds": 45.7,
+  "achieved_rps": 3.195,
+  "peak_inflight": 1,
+  "gap_seconds": 0.25,
+  "planned_total": 148,
+  "requests": {
+   "ok": 146,
+   "retry": 0,
+   "failed": 5,
+   "blocked": 5,
+   "cache_hit": 0,
+   "bytes": 11492942,
+   "seconds": 12.99
+  },
+  "per_host": {
+   "datacenter-web.eastmoney.com": {
+    "requests": 137,
+    "ok": 137,
+    "failed": 0,
+    "kb": 11110.0,
+    "avg_ms": 83.0,
+    "rps_applied": 3.5
+   },
+   "money.finance.sina.com.cn": {
+    "requests": 4,
+    "ok": 4,
+    "failed": 0,
+    "kb": 20.3,
+    "avg_ms": 161.0,
+    "rps_applied": 2.0
+   },
+   "qt.gtimg.cn": {
+    "requests": 5,
+    "ok": 5,
+    "failed": 0,
+    "kb": 93.2,
+    "avg_ms": 199.0,
+    "rps_applied": 3.0
+   },
+   "web.ifzq.gtimg.cn": {
+    "requests": 5,
+    "ok": 0,
+    "failed": 5,
+    "kb": 0.0,
+    "avg_ms": 118.0,
+    "rps_applied": 0.5
+   }
+  },
+  "slow_events": [
+   {
+    "host": "web.ifzq.gtimg.cn",
+    "from": 2.5,
+    "to": 1.25,
+    "why": "WAF 501"
+   },
+   {
+    "host": "web.ifzq.gtimg.cn",
+    "from": 1.25,
+    "to": 0.62,
+    "why": "WAF 501"
+   },
+   {
+    "host": "web.ifzq.gtimg.cn",
+    "from": 0.62,
+    "to": 0.5,
+    "why": "WAF 501"
+   }
+  ],
+  "violations": []
+ }
+}
